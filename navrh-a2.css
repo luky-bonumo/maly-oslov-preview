@@ -39,3 +39,55 @@ h1, h2, h3, .count, .facts dt, .price, .steps li::before { color: var(--accent);
 .menu summary { border-color: var(--accent); }
 .menu summary span, .menu summary span::before { background: var(--accent); }
 :focus-visible { outline-color: var(--accent); }
+
+/* ---------- sekce jen s fotkami (pod úvodem) ----------
+   Dvě řady fotek v plné šířce. Šířka každé fotky odpovídá jejímu poměru stran (--r),
+   takže fotky v řadě mají stejnou výšku a nic se neořízne. */
+main > .band { margin-top: clamp(40px, 5vw, 80px); }
+.band { display: grid; gap: clamp(8px, .9vw, 14px); }
+.band-row { display: flex; gap: clamp(8px, .9vw, 14px); }
+.band-row figure { flex: var(--r) 1 0; min-width: 0; aspect-ratio: var(--r); margin: 0; border-radius: var(--r-lg); overflow: hidden; background: var(--paper); }
+.band-row img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- Na co si lidé Oslov půjčují: modrý panel s oblouky ----------
+   Kontrastní místo stránky. Fotky jsou v obloucích jako okna domečků, s tenkým bílým rámem. */
+.occ-panel {
+  --on: #fffefa;
+  background: repeating-linear-gradient(90deg, #2a64b2 0 var(--sw), #2d69ba var(--sw) calc(var(--sw) * 2.2));
+  color: var(--on); border-radius: var(--r-xl);
+  padding: clamp(36px, 6vw, 104px) clamp(20px, 4.4vw, 80px) clamp(40px, 6vw, 112px);
+}
+.occ-panel h2, .occ-panel h3, .occ-panel .more { color: var(--on); }
+.occ-panel .head > p { color: rgba(255, 254, 250, .86); }
+.occ-panel :focus-visible { outline-color: var(--on); }
+.occ-head { margin-bottom: clamp(36px, 4.4vw, 72px); }
+.occ-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(20px, 2.6vw, 44px); align-items: start; }
+.occ-card { display: block; text-decoration: none; }
+.occ-card:nth-child(even) { margin-top: clamp(28px, 4vw, 72px); }
+.occ-arch {
+  margin: 0 0 clamp(18px, 2vw, 28px); aspect-ratio: 3 / 4.25; overflow: hidden;
+  border-radius: 999px 999px var(--r-md) var(--r-md);
+  outline: 1.5px solid rgba(255, 254, 250, .55); outline-offset: 7px;
+}
+.occ-arch img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.2, .7, .2, 1); }
+.occ-card:hover .occ-arch img { transform: scale(1.04); }
+.occ-card:nth-child(1) .occ-arch img { object-position: 40% 62%; }
+.occ-card p { margin-top: .5em; color: rgba(255, 254, 250, .86); }
+.occ-card .more { display: inline-block; margin-top: .9em; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .28em; }
+
+@media (max-width: 1100px) {
+  .occ-row { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: clamp(36px, 6vw, 60px); }
+  .occ-card:nth-child(even) { margin-top: clamp(28px, 6vw, 60px); }
+  .occ-arch { aspect-ratio: 3 / 3.6; }
+}
+@media (max-width: 640px) {
+  .band { grid-template-columns: 1fr 1fr; }
+  .band-row { display: contents; }
+  .band-row figure { aspect-ratio: 4 / 5; }
+  .band-row:first-child figure:first-child { grid-column: 1 / -1; aspect-ratio: 3 / 2; }
+  .occ-row { grid-auto-flow: column; grid-auto-columns: 74vw; grid-template-columns: none; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 20px; margin-inline: -20px; padding: 10px 20px 4px; scrollbar-width: none; }
+  .occ-row::-webkit-scrollbar { display: none; }
+  .occ-card { scroll-snap-align: start; }
+  .occ-card:nth-child(even) { margin-top: 0; }
+  .occ-arch { aspect-ratio: 3 / 4; }
+}

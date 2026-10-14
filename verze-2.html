@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="cs">
 <head>
-<!-- Vygenerováno skriptem publikovat-nahled.sh z navrh-a.html. Needitovat, změny dělat v navrh-a.html a navrh-a2.css. -->
+<!-- Verze 2. Vlastní HTML; styly = navrh-a.css (základ, sdílený s verzí A) + navrh-a2.css (vše, čím se verze 2 liší). -->
 <meta charset="utf-8">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -82,6 +82,20 @@
   </dl>
 </section>
 
+<section class="wrap band" aria-label="Fotografie z Malého Oslova">
+  <div class="band-row">
+    <figure style="--r: 1.347"><img src="assets/sl-domecek-bily.jpg" alt="Bílý domeček s modrými okenicemi na louce, za stromy jezero" width="1200" height="891" loading="lazy"></figure>
+    <figure style="--r: .666"><img src="assets/sl-toceni.jpg" alt="Žena v bílých šatech se točí v tanci na terase u bazénu" width="799" height="1200" loading="lazy"></figure>
+    <figure style="--r: 1.359"><img src="assets/sl-okno.jpg" alt="Otevřené okno modrého domečku s bílými okenicemi a postelí uvnitř" width="1200" height="883" loading="lazy"></figure>
+  </div>
+  <div class="band-row">
+    <figure style="--r: .75"><img src="assets/sl-veranda-kytky.jpg" alt="Bílá veranda domečku s kyticí lučních květin" width="900" height="1200" loading="lazy"></figure>
+    <figure style="--r: 1.333"><img src="assets/sl-les-reka.jpg" alt="Borovice na skalách nad řekou" width="1200" height="900" loading="lazy"></figure>
+    <figure style="--r: .75"><img src="assets/sl-vyhlidka.jpg" alt="Vyhlídka ze skal na soutok řek při západu slunce" width="900" height="1200" loading="lazy"></figure>
+    <figure style="--r: 1.333"><img src="assets/sl-louka.jpg" alt="Louka s naskládanými kmeny v podvečerním světle" width="1200" height="900" loading="lazy"></figure>
+  </div>
+</section>
+
 <section class="wrap split" id="cele-vase">
   <div class="split-intro">
     <h2>Je to celé vaše. Dělejte si tu, co chcete.</h2>
@@ -122,36 +136,38 @@
   </ul>
 </section>
 
-<section class="wrap occasions" id="akce">
-  <div class="head">
-    <h2>Na co si lidé Oslov půjčují</h2>
-    <p>Čtyři nejčastější důvody. Když máte jiný, napište nám ho.</p>
-  </div>
-  <div class="tiles">
-    <a class="tile tile-1" href="#">
-      <figure class="photo"><img src="assets/novomanzele-stan.jpg" alt="Smějící se novomanželé s dítětem v náručí, za nimi plachta beduínského stanu" width="2000" height="1333" loading="lazy"></figure>
-      <h3>Svatby</h3>
-      <p>Obřad, hostina, tanec i&nbsp;nocleh pro všechny hosty na jednom místě. Ráno se nikam nejede, snídá se spolu.</p>
-      <span class="more">Svatby v&nbsp;Oslově</span>
-    </a>
-    <a class="tile tile-2" href="#">
-      <figure class="photo"><img src="assets/bubliny.jpg" alt="Holčička ve žlutých šatech běží po louce za velkými bublinami" width="1500" height="1500" loading="lazy"></figure>
-      <h3>Oslavy a&nbsp;setkání</h3>
-      <p>Kulatiny, rozlučky nebo sraz po dvaceti letech. Každý má svůj domeček a&nbsp;nikdo nemusí řídit domů.</p>
-      <span class="more">Oslavy a&nbsp;setkání</span>
-    </a>
-    <a class="tile tile-3" href="#">
-      <figure class="photo"><img src="assets/kapela.jpg" alt="Kapela hraje večer u bazénu pod řetězy světel" width="1200" height="1500" loading="lazy"></figure>
-      <h3>Firemní akce</h3>
-      <p>Teambuilding, offsite nebo letní party. Zázemí na workshop a&nbsp;místo, kde se tým potká jinak než v&nbsp;kanceláři.</p>
-      <span class="more">Akce pro firmy</span>
-    </a>
-    <a class="tile tile-4" href="#">
-      <figure class="photo"><img src="assets/chata-vecer.jpg" alt="Rozsvícená společenská chata s verandou za soumraku" width="1700" height="1237" loading="lazy"></figure>
-      <h3>Vánoce a&nbsp;Silvestr</h3>
-      <p>V&nbsp;zimě pro 50 hostů. Krbová kamna, světýlka a&nbsp;vesnička, kde se svítí jen u&nbsp;vás.</p>
-      <span class="more">Zimní večírky</span>
-    </a>
+<section class="wrap occ" id="akce">
+  <div class="occ-panel">
+    <div class="head occ-head">
+      <h2>Na co si lidé Oslov půjčují</h2>
+      <p>Čtyři nejčastější důvody. Když máte jiný, napište nám ho.</p>
+    </div>
+    <div class="occ-row">
+      <a class="occ-card" href="#">
+        <figure class="occ-arch"><img src="assets/occ-svatby.jpg" alt="Ruce novomanželů se zásnubním prstenem nad řekou" width="666" height="1000" loading="lazy"></figure>
+        <h3>Svatby</h3>
+        <p>Obřad, hostina, tanec i&nbsp;nocleh pro všechny hosty na jednom místě. Ráno se nikam nejede, snídá se spolu.</p>
+        <span class="more">Svatby v&nbsp;Oslově</span>
+      </a>
+      <a class="occ-card" href="#">
+        <figure class="occ-arch"><img src="assets/occ-oslavy.jpg" alt="Podzimní tabule s květinami před rozsvícenou společenskou chatou" width="800" height="1000" loading="lazy"></figure>
+        <h3>Oslavy a&nbsp;setkání</h3>
+        <p>Kulatiny, rozlučky nebo sraz po dvaceti letech. Každý má svůj domeček a&nbsp;nikdo nemusí řídit domů.</p>
+        <span class="more">Oslavy a&nbsp;setkání</span>
+      </a>
+      <a class="occ-card" href="#">
+        <figure class="occ-arch"><img src="assets/occ-firmy.jpg" alt="Dlouhý dřevěný stůl ve společenské chatě pod světýlky" width="750" height="1000" loading="lazy"></figure>
+        <h3>Firemní akce</h3>
+        <p>Teambuilding, offsite nebo letní party. Zázemí na workshop a&nbsp;místo, kde se tým potká jinak než v&nbsp;kanceláři.</p>
+        <span class="more">Akce pro firmy</span>
+      </a>
+      <a class="occ-card" href="#">
+        <figure class="occ-arch"><img src="assets/occ-vanoce.jpg" alt="Oheň v krbových kamnech a naštípané dřevo" width="667" height="1000" loading="lazy"></figure>
+        <h3>Vánoce a&nbsp;Silvestr</h3>
+        <p>V&nbsp;zimě pro 50 hostů. Krbová kamna, světýlka a&nbsp;vesnička, kde se svítí jen u&nbsp;vás.</p>
+        <span class="more">Zimní večírky</span>
+      </a>
+    </div>
   </div>
 </section>
 
