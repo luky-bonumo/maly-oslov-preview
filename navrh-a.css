@@ -63,7 +63,8 @@ main > section + section { margin-top: var(--sec); }
 .link:hover::after, a:hover .more::after { transform: translateX(4px); }
 
 /* header */
-.top { position: sticky; top: 0; z-index: 50; background: rgba(255, 255, 255, .4); backdrop-filter: blur(14px) saturate(1.1); -webkit-backdrop-filter: blur(14px) saturate(1.1); }
+.top { position: sticky; top: 0; z-index: 50; background: transparent; transition: background-color .25s, box-shadow .25s, backdrop-filter .25s, -webkit-backdrop-filter .25s; }
+.top.is-scrolled { background: rgba(247, 242, 232, .78); backdrop-filter: blur(14px) saturate(1.1); -webkit-backdrop-filter: blur(14px) saturate(1.1); box-shadow: 0 1px 0 var(--line); }
 .top-in { display: flex; align-items: center; gap: clamp(20px, 3vw, 56px); height: 92px; }
 .logo img { height: 62px; width: auto; opacity: .86; }
 .nav { display: flex; gap: clamp(16px, 2vw, 34px); font-size: 1rem; }
@@ -99,10 +100,10 @@ figcaption {
   background: var(--paper); border-radius: 999px; padding: .5em 1.1em; font-size: .95rem; line-height: 1.3;
 }
 
-/* hero: nadpis nad videem, video na šířku bez překryvu, pod ním text vlevo a tlačítka vpravo. Zatím se prolínají tři fotky. */
-.hero { padding-top: clamp(12px, 2vw, 28px); }
-.hero h1 { text-align: center; font-size: clamp(2.6rem, 4.4vw + .4rem, 5.6rem); margin-bottom: clamp(16px, 2vw, 30px); }
-.hero-frame { position: relative; overflow: hidden; border-radius: var(--r-xl); width: 100%; aspect-ratio: 16 / 8; max-height: calc(100vh - 355px); max-height: calc(100svh - 355px);
+/* hero: video na šířku bez překryvu, pod ním vlevo nadpis, pod nadpisem text vlevo a tlačítka vpravo. Zatím se prolínají tři fotky. */
+.hero { padding-top: 8px; }
+.hero h1 { font-size: clamp(2.6rem, 5vw + .4rem, 6rem); margin-top: clamp(20px, 2.6vw, 40px); }
+.hero-frame { position: relative; overflow: hidden; border-radius: var(--r-xl); width: 100%; aspect-ratio: 16 / 8; max-height: calc(100vh - 340px); max-height: calc(100svh - 340px);
   /* nejvýš 2,5 : 1, aby se video na nízkých obrazovkách neořezalo do úzkého pruhu */
   min-height: max(300px, min(calc((100vw - 2 * var(--pad)) / 2.5), 680px)); background: var(--paper); }
 .hero-media { position: absolute; inset: 0; }
@@ -118,7 +119,7 @@ figcaption {
   39% { opacity: 0; transform: scale(1.1); }
   100% { opacity: 0; transform: scale(1.1); }
 }
-.hero-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px clamp(24px, 5vw, 96px); align-items: center; margin-top: clamp(18px, 2.2vw, 34px); }
+.hero-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px clamp(24px, 5vw, 96px); align-items: center; margin-top: clamp(14px, 1.6vw, 24px); }
 .hero-row .lead { max-width: 36em; }
 .hero-row .actions { margin-top: 0; justify-content: flex-end; flex-wrap: nowrap; gap: 12px; }
 
