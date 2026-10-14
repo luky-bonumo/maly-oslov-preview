@@ -100,7 +100,7 @@ figcaption {
   background: var(--paper); border-radius: 999px; padding: .5em 1.1em; font-size: .95rem; line-height: 1.3;
 }
 
-/* hero: video na šířku bez překryvu, pod ním vlevo nadpis, pod nadpisem text vlevo a tlačítka vpravo. Zatím se prolínají tři fotky. */
+/* hero: široký panel s prolínajícími se fotkami (bez textu a překryvu), pod ním vlevo nadpis, pod nadpisem text vlevo a tlačítka vpravo */
 .hero { padding-top: 8px; }
 .hero h1 { font-size: clamp(2.6rem, 5vw + .4rem, 6rem); margin-top: clamp(20px, 2.6vw, 40px); }
 .hero-frame { position: relative; overflow: hidden; border-radius: var(--r-xl); width: 100%; aspect-ratio: 16 / 8; max-height: calc(100vh - 340px); max-height: calc(100svh - 340px);
@@ -108,16 +108,19 @@ figcaption {
   min-height: max(300px, min(calc((100vw - 2 * var(--pad)) / 2.5), 680px)); background: var(--paper); }
 .hero-media { position: absolute; inset: 0; }
 .hero-media img, .hero-media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.hero-media img { opacity: 0; animation: hero-fade 21s infinite both; }
-.hero-media img:nth-child(1) { animation-delay: -1.2s; object-position: 50% 58%; }
-.hero-media img:nth-child(2) { animation-delay: 5.8s; object-position: 50% 38%; }
-.hero-media img:nth-child(3) { animation-delay: 12.8s; object-position: 50% 30%; }
+/* pět fotek, každá zhruba 6 s, prolnutí 1,2 s, pomalý zoom */
+.hero-media img { opacity: 0; animation: hero-fade 30s infinite both; }
+.hero-media img:nth-child(1) { animation-delay: -1.2s; object-position: 50% 60%; }
+.hero-media img:nth-child(2) { animation-delay: 4.8s; object-position: 50% 62%; }
+.hero-media img:nth-child(3) { animation-delay: 10.8s; object-position: 50% 58%; }
+.hero-media img:nth-child(4) { animation-delay: 16.8s; object-position: 50% 45%; }
+.hero-media img:nth-child(5) { animation-delay: 22.8s; object-position: 50% 68%; }
 @keyframes hero-fade {
   0% { opacity: 0; transform: scale(1.02); }
-  5.7% { opacity: 1; }
-  33.3% { opacity: 1; }
-  39% { opacity: 0; transform: scale(1.1); }
-  100% { opacity: 0; transform: scale(1.1); }
+  4% { opacity: 1; }
+  20% { opacity: 1; }
+  24% { opacity: 0; transform: scale(1.08); }
+  100% { opacity: 0; transform: scale(1.08); }
 }
 .hero-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px clamp(24px, 5vw, 96px); align-items: center; margin-top: clamp(14px, 1.6vw, 24px); }
 .hero-row .lead { max-width: 36em; }

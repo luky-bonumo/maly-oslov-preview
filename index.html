@@ -49,13 +49,15 @@
 
 <section class="wrap hero">
   <div class="hero-frame">
-    <!-- Sem přijde video na šířku:
-         <video src="assets/hero.mp4" poster="assets/domecky-louka.jpg" autoplay muted loop playsinline></video>
-         Do té doby se prolínají tři fotky s jemným zoomem. -->
+    <!-- Den v Malém Oslově: ráno v chatě, domeček, odpoledne u bazénu, tanec na louce, večer s lucernami.
+         Fotky se pomalu prolínají. Kdyby se natočilo video, nahradí celý blok .hero-media:
+         <video src="assets/hero.mp4" poster="assets/hero-chata-rano.jpg" autoplay muted loop playsinline></video> -->
     <div class="hero-media" aria-hidden="true">
-      <img src="assets/domecky-louka.jpg" alt="" width="2000" height="1334" fetchpriority="high">
-      <img src="assets/pruvod-louka.jpg" alt="" width="2000" height="1334">
-      <img src="assets/oslava-stan.jpg" alt="" width="2000" height="1333">
+      <img src="assets/hero-chata-rano.jpg" srcset="assets/hero-chata-rano-m.jpg 1200w, assets/hero-chata-rano.jpg 2400w" sizes="(min-width: 1720px) 1624px, calc(100vw - 32px)" alt="" width="2400" height="1599" fetchpriority="high">
+      <img src="assets/hero-domecek-nebesa.jpg" srcset="assets/hero-domecek-nebesa-m.jpg 1200w, assets/hero-domecek-nebesa.jpg 2400w" sizes="(min-width: 1720px) 1624px, calc(100vw - 32px)" alt="" width="2400" height="1800" fetchpriority="low" decoding="async">
+      <img src="assets/hero-bazen.jpg" srcset="assets/hero-bazen-m.jpg 1200w, assets/hero-bazen.jpg 2400w" sizes="(min-width: 1720px) 1624px, calc(100vw - 32px)" alt="" width="2400" height="1599" fetchpriority="low" decoding="async">
+      <img src="assets/hero-tanec-louka.jpg" srcset="assets/hero-tanec-louka-m.jpg 1200w, assets/hero-tanec-louka.jpg 2400w" sizes="(min-width: 1720px) 1624px, calc(100vw - 32px)" alt="" width="2400" height="1599" fetchpriority="low" decoding="async">
+      <img src="assets/hero-chata-vecer.jpg" srcset="assets/hero-chata-vecer-m.jpg 1200w, assets/hero-chata-vecer.jpg 2000w" sizes="(min-width: 1720px) 1624px, calc(100vw - 32px)" alt="" width="2000" height="2000" fetchpriority="low" decoding="async">
     </div>
   </div>
   <h1>Pronajměte si celou vesničku</h1>
