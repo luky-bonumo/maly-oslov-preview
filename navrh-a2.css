@@ -1,0 +1,25 @@
+/* Verze A2: stejný návrh jako A, jiná typografie.
+   Nadpisy a velká čísla Playfair Display 600, text a ovládací prvky Jost 400/500.
+   Načítá se až po navrh-a.css a mění jen písmo. */
+
+:root {
+  --serif: "Playfair Display", Georgia, serif;
+  --sans: "Jost", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+body { font-family: var(--sans); }
+
+h1, h2, h3,
+.facts dt, .count, .price, .steps li::before,
+.press ul, .press blockquote p, .faq-list summary {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-variant-numeric: lining-nums;
+}
+h1, h2 { letter-spacing: -.018em; }
+
+.btn { font-weight: 500; letter-spacing: .005em; }
+.nav, .lang, .menu nav { letter-spacing: .01em; }
+
+/* citát v silném řezu potřebuje větší velikost, jinak působí hutně */
+.press blockquote p { font-size: clamp(1.3rem, .9vw + 1rem, 1.75rem); line-height: 1.3; }
