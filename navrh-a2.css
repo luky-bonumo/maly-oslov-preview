@@ -26,7 +26,7 @@ h1, h2 { letter-spacing: -.018em; }
 
 /* Barvy verze 2.
    --accent: tmavší modrá na tlačítka a odkazy (vzorek #568ed7 ztmavený kvůli čitelnosti: 5,3 : 1 na béžové).
-   --blue-light: druhá modrá na plochy a pozadí. --mist: velmi světlá šedomodrá na klidné plochy.
+   --blue-light: druhá modrá na plochy a pozadí. --mist: velmi světlá šedomodrá (zatím nepoužitá).
    Nadpisy a text jsou tmavé (barva --ink ze základu). */
 :root { --accent: #2a64b2; --blue-light: #81bfe0; --mist: #eceff4; }
 
@@ -93,15 +93,30 @@ main > .band { margin-top: clamp(40px, 5vw, 80px); }
   .occ-arch { aspect-ratio: 3 / 4; }
 }
 
-/* ---------- druhá modrá a světlé plochy ---------- */
-/* Co všechno je v ceně: bez markýzy, celý panel ve světle modré */
-.kiosk { background: var(--blue-light); border-radius: var(--r-xl); margin-top: 0; }
-.kiosk .checks li { border-top-color: rgba(52, 48, 44, .22); }
-/* pruhy u ceníku ve stejné světle modré */
+/* ---------- druhá modrá a bílé plochy ---------- */
+/* Co všechno je v ceně: bílý panel bez markýzy, „Na přání přidáme“ ve světle modré */
+.kiosk { background: var(--white); border-radius: var(--r-xl); margin-top: 0; }
+.kiosk .extras { background: var(--blue-light); }
+.kiosk .extras li { border-top-color: rgba(52, 48, 44, .22); }
+/* šedší text na modré by byl málo čitelný (při .72 jen 2,6 : 1), .85 dává asi 4,8 : 1 */
+.kiosk .extras li span:last-child, .kiosk .note { opacity: .85; }
+/* pruhy u ceníku ve světle modré */
 .pricing-stripes { --stripe: var(--blue-light); }
-/* časté dotazy na klidné šedomodré ploše */
-.faq { background: var(--mist); border-radius: var(--r-xl); padding: clamp(28px, 5vw, 88px); max-width: calc(1720px - 2 * var(--pad)); width: calc(100% - 2 * var(--pad)); margin-inline: auto; }
-.faq-list details, .faq-list details:last-child { border-color: rgba(52, 48, 44, .18); }
+/* časté dotazy na bílé: na mobilu panel jako ostatní, od tabletu výš pás přes celou šířku okna */
+.faq { background: var(--white); border-radius: var(--r-xl); padding: clamp(28px, 5vw, 88px); max-width: calc(1720px - 2 * var(--pad)); width: calc(100% - 2 * var(--pad)); margin-inline: auto; }
+@media (min-width: 901px) {
+  .faq {
+    width: 100%; max-width: none; border-radius: 0;
+    padding-block: clamp(64px, 7vw, 120px);
+    /* obsah zarovnaný na stejné okraje jako zbytek stránky */
+    padding-inline: max(var(--pad), calc((100% - 1720px) / 2 + var(--pad)));
+  }
+}
+
+/* ---------- patička: copyright vlevo, autor webu vpravo ---------- */
+.foot-legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; }
+.foot-legal a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .2em; }
+.foot-legal a:hover { text-decoration: none; }
 
 /* jednotky m²: horní index místo znaku ², ten některá písma nemají (Instrument Serif a Sans) */
 sup { font-size: .55em; line-height: 0; vertical-align: .55em; }
