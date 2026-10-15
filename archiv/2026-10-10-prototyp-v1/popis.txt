@@ -1,0 +1,1 @@
+Funkční prototyp: rychlá poptávka, kalkulačka domečků, konfigurátor půjčovny, kalendář.

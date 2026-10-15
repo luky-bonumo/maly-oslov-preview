@@ -1,0 +1,152 @@
+/* Verze A2: stejný návrh jako A, jiná typografie.
+   Nadpisy a velká čísla Playfair Display 600, text a ovládací prvky Jost 400/500.
+   Načítá se až po navrh-a.css a mění jen písmo. */
+
+:root {
+  --serif: "Playfair Display", Georgia, serif;
+  --sans: "Jost", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+body { font-family: var(--sans); }
+
+h1, h2, h3,
+.facts dt, .count, .price, .steps li::before,
+.press ul, .press blockquote p, .faq-list summary {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-variant-numeric: lining-nums;
+}
+h1, h2 { letter-spacing: -.018em; }
+
+.btn { font-weight: 500; letter-spacing: .005em; }
+.nav, .lang, .menu nav { letter-spacing: .01em; }
+
+/* citát v silném řezu potřebuje větší velikost, jinak působí hutně */
+.press blockquote p { font-size: clamp(1.3rem, .9vw + 1rem, 1.75rem); line-height: 1.3; }
+
+/* Barvy verze 2.
+   --accent: tmavší modrá na tlačítka a odkazy (vzorek #568ed7 ztmavený kvůli čitelnosti: 5,3 : 1 na béžové).
+   --blue-light: druhá modrá na plochy a pozadí. --mist: nejsvětlejší modrá na klidné plochy (box „Na přání přidáme“).
+   Nadpisy a text jsou tmavé (barva --ink ze základu). */
+:root { --accent: #2a64b2; --blue-light: #81bfe0; --mist: #eceff4; }
+
+.btn { background: var(--accent); border-color: var(--accent); color: var(--white); }
+.btn:hover { background: transparent; color: var(--accent); }
+.btn-ghost { background: transparent; color: var(--accent); }
+.btn-ghost:hover { background: var(--accent); color: var(--white); }
+.link, .more, .contacts a, .faq-head a { color: var(--accent); }
+.arrow { border-color: var(--accent); color: var(--accent); }
+.arrow:hover:not(:disabled) { background: var(--accent); color: var(--white); }
+.menu summary { border-color: var(--accent); }
+.menu summary span, .menu summary span::before { background: var(--accent); }
+:focus-visible { outline-color: var(--accent); }
+
+/* ---------- sekce jen s fotkami (pod úvodem) ----------
+   Dvě řady fotek v plné šířce. Šířka každé fotky odpovídá jejímu poměru stran (--r),
+   takže fotky v řadě mají stejnou výšku a nic se neořízne. */
+main > .band { margin-top: clamp(40px, 5vw, 80px); }
+.band { display: grid; gap: clamp(8px, .9vw, 14px); }
+.band-row { display: flex; gap: clamp(8px, .9vw, 14px); }
+.band-row figure { flex: var(--r) 1 0; min-width: 0; aspect-ratio: var(--r); margin: 0; border-radius: var(--r-lg); overflow: hidden; background: var(--paper); }
+.band-row img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- Na co si lidé Oslov půjčují: modrý panel s oblouky ----------
+   Kontrastní místo stránky. Fotky jsou v obloucích jako okna domečků, s tenkým bílým rámem. */
+.occ-panel {
+  --on: #fffefa;
+  background: repeating-linear-gradient(90deg, #2a64b2 0 var(--sw), #2d69ba var(--sw) calc(var(--sw) * 2.2));
+  color: var(--on); border-radius: var(--r-xl);
+  padding: clamp(36px, 6vw, 104px) clamp(20px, 4.4vw, 80px) clamp(40px, 6vw, 112px);
+}
+.occ-panel h2, .occ-panel h3, .occ-panel .more { color: var(--on); }
+.occ-panel .head > p { color: rgba(255, 254, 250, .86); }
+.occ-panel :focus-visible { outline-color: var(--on); }
+.occ-head { margin-bottom: clamp(36px, 4.4vw, 72px); }
+.occ-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(20px, 2.6vw, 44px); align-items: start; }
+.occ-card { display: block; text-decoration: none; }
+.occ-card:nth-child(even) { margin-top: clamp(28px, 4vw, 72px); }
+.occ-arch {
+  margin: 0 0 clamp(18px, 2vw, 28px); aspect-ratio: 3 / 4.25; overflow: hidden;
+  border-radius: 999px 999px var(--r-md) var(--r-md);
+  outline: 1.5px solid rgba(255, 254, 250, .55); outline-offset: 7px;
+}
+.occ-arch img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.2, .7, .2, 1); }
+.occ-card:hover .occ-arch img { transform: scale(1.04); }
+.occ-card:nth-child(1) .occ-arch img { object-position: 40% 62%; }
+.occ-card p { margin-top: .5em; color: rgba(255, 254, 250, .86); }
+.occ-card .more { display: inline-block; margin-top: .9em; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .28em; }
+
+@media (max-width: 1100px) {
+  .occ-row { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: clamp(36px, 6vw, 60px); }
+  .occ-card:nth-child(even) { margin-top: clamp(28px, 6vw, 60px); }
+  .occ-arch { aspect-ratio: 3 / 3.6; }
+}
+@media (max-width: 640px) {
+  .band { grid-template-columns: 1fr 1fr; }
+  .band-row { display: contents; }
+  .band-row figure { aspect-ratio: 4 / 5; }
+  .band-row:first-child figure:first-child { grid-column: 1 / -1; aspect-ratio: 3 / 2; }
+  .occ-row { grid-auto-flow: column; grid-auto-columns: 74vw; grid-template-columns: none; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 20px; margin-inline: -20px; padding: 10px 20px 4px; scrollbar-width: none; }
+  .occ-row::-webkit-scrollbar { display: none; }
+  .occ-card { scroll-snap-align: start; }
+  .occ-card:nth-child(even) { margin-top: 0; }
+  .occ-arch { aspect-ratio: 3 / 4; }
+}
+
+/* ---------- druhá modrá a bílé plochy ---------- */
+/* Co všechno je v ceně: bílý panel bez markýzy, „Na přání přidáme“ v nejsvětlejší modré */
+.kiosk { background: var(--white); border-radius: var(--r-xl); margin-top: 0; }
+.kiosk .extras { background: var(--mist); }
+.kiosk .extras li { border-top-color: rgba(52, 48, 44, .22); }
+/* šedší ceny o něco tmavší, ať jsou na modré ploše dobře čitelné */
+.kiosk .extras li span:last-child, .kiosk .note { opacity: .85; }
+/* pruhy u ceníku ve světle modré */
+.pricing-stripes { --stripe: var(--blue-light); }
+/* časté dotazy na bílé: na mobilu panel jako ostatní, od tabletu výš pás přes celou šířku okna */
+.faq { background: var(--white); border-radius: var(--r-xl); padding: clamp(28px, 5vw, 88px); max-width: calc(1720px - 2 * var(--pad)); width: calc(100% - 2 * var(--pad)); margin-inline: auto; }
+@media (min-width: 901px) {
+  .faq {
+    width: 100%; max-width: none; border-radius: 0;
+    padding-block: clamp(64px, 7vw, 120px);
+    /* obsah zarovnaný na stejné okraje jako zbytek stránky */
+    padding-inline: max(var(--pad), calc((100% - 1720px) / 2 + var(--pad)));
+  }
+}
+
+/* ---------- patička: copyright vlevo, autor webu vpravo ---------- */
+.foot-legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; }
+.foot-legal a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .2em; }
+.foot-legal a:hover { text-decoration: none; }
+
+/* jednotky m²: horní index místo znaku ², ten některá písma nemají (Instrument Serif a Sans) */
+sup { font-size: .55em; line-height: 0; vertical-align: .55em; }
+
+/* Playfair 600 je širší než 400: „25 000 m²“ se na 360px telefonu musí trochu zmenšit */
+@media (max-width: 640px) {
+  .facts dt { font-size: 1.75rem; }
+}
+
+/* ---------- H1 přes celou šířku úvodu ----------
+   Velikost písma se dopočítá z šířky úvodu (cqi = procento šířky kontejneru .hero).
+   --h1-k je šířka textu nadpisu v em pro dané písmo, změřená v prohlížeči. Při změně textu nadpisu
+   nebo písma je potřeba ji změřit znovu. Koeficient .985 je rezerva na rozdíly ve vykreslení mezi prohlížeči.
+   Na mobilu se nadpis dál zalamuje do dvou řádků. Prohlížeče bez container queries zůstanou u původní velikosti. */
+:root { --h1-k: 13.631; }
+@supports (font-size: 1cqi) {
+  @media (min-width: 641px) {
+    .hero { container-type: inline-size; }
+    .hero > * { --h1-fs: calc(100cqi / var(--h1-k) * .985); }
+    .hero h1 { font-size: var(--h1-fs); }
+  }
+  /* větší nadpis ubere výšku fotce, aby text pod ní zůstal na notebooku vidět bez scrollování */
+  @media (min-width: 901px) {
+    .hero-frame { max-height: calc(100vh - 262px - var(--h1-fs)); max-height: calc(100svh - 262px - var(--h1-fs)); }
+  }
+}
+
+/* čísla a popisky pod úvodem v modré tlačítek */
+.facts dt, .facts dd { color: var(--accent); }
+
+/* domečky: počet, název i popis na střed pod fotkou */
+.house-row li { display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; align-content: flex-start; column-gap: 10px; text-align: center; }
+.house-row li > .photo, .house-row li > p:last-child { flex: 0 0 100%; }

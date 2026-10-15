@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Malý Oslov Glamping – celá vesnička jen pro vás</title>
+<meta name="description" content="Glampingová mini-vesnička s 21 barevnými domečky u soutoku Otavy a Lomnice. Svatby, oslavy a teambuilding pro až 82 hostů, hodinu od Prahy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="demo-ribbon">Návrh redesignu · ukázka pro Malý Oslov · texty, ceny a data jsou zástupné</div>
+
+<header class="site-header" id="top">
+  <a class="wordmark" href="#top" aria-label="Malý Oslov Glamping – úvod">
+    <span>Malý<br>Oslov</span><em>glamping</em>
+  </a>
+  <nav class="nav" aria-label="Hlavní menu">
+    <a href="#akce">Svatby &amp; akce</a>
+    <a href="#domecky">Domečky</a>
+    <a href="#pujcovna">Půjčovna <b class="new">nové</b></a>
+    <a href="#kalendar">Termíny</a>
+    <a href="#poptavka" class="btn btn-small">Poptávka</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-copy">
+    <p class="eyebrow">Oslovte Oslov</p>
+    <h1>Celá vesnička.<br><em>Jen pro vás.</em></h1>
+    <p class="lead">Jedenadvacet barevných domečků na jedné louce u soutoku Otavy a Lomnice. Svatba, oslava nebo teambuilding bez cizích lidí a bez kompromisů. Hodinu od Prahy.</p>
+
+    <form class="quick" id="quick" aria-label="Rychlé ověření termínu">
+      <label>Co plánujete
+        <select name="typ" required>
+          <option value="Svatba">Svatbu</option>
+          <option value="Oslava">Oslavu</option>
+          <option value="Teambuilding">Teambuilding</option>
+          <option value="Večírek">Vánoční / silvestrovský večírek</option>
+          <option value="Jiné">Něco jiného</option>
+        </select>
+      </label>
+      <label>Hostů
+        <input type="number" name="hostu" min="1" max="200" value="40" required>
+      </label>
+      <label>Termín
+        <input type="date" name="datum">
+      </label>
+      <button class="btn" type="submit">Zjistit, jestli to vyjde</button>
+    </form>
+    <p class="quick-note" id="quickNote" role="status" aria-live="polite"></p>
+
+    <ul class="facts" aria-label="Základní fakta">
+      <li><strong>21</strong> domečků</li>
+      <li><strong>82</strong> lůžek</li>
+      <li><strong>25 000&nbsp;m²</strong> louky a lesa</li>
+      <li><strong>Pes</strong> vítán</li>
+    </ul>
+  </div>
+  <div class="hero-art">
+    <img class="arch" src="assets/nevesta-bazen.jpg" alt="Nevěsta tančí v bílých šatech u bazénu při večerním světle" fetchpriority="high">
+    <img class="polaroid p1" src="assets/domecek-cerveny.jpg" alt="Červený domeček na louce mezi stromy">
+    <img class="polaroid p2" src="assets/domecek-modry.jpg" alt="Modrý domeček s otevřenými okenicemi">
+  </div>
+</section>
+
+<!-- AKCE -->
+<section class="section" id="akce">
+  <header class="section-head">
+    <p class="eyebrow">Pro každou příležitost</p>
+    <h2>Jedno místo, <em>čtyři nálady</em></h2>
+  </header>
+  <div class="cards">
+    <article class="card card-red">
+      <img src="assets/stul-podzim.jpg" alt="Prostřený svatební stůl v podzimních barvách" loading="lazy">
+      <div class="card-body">
+        <h3>Svatby</h3>
+        <p>Obřad pod starým dubem, hostina, večerní tanec a ráno snídaně. Všechno na jednom místě.</p>
+        <a href="#svatba-den">Jak vypadá svatební den →</a>
+      </div>
+    </article>
+    <article class="card card-navy">
+      <img src="assets/piknik.jpg" alt="Skupina přátel na pikniku na louce" loading="lazy">
+      <div class="card-body">
+        <h3>Teambuilding</h3>
+        <p>Ticho, příroda, paddleboard a oheň. Tým se tu konečně potká jako lidé.</p>
+        <a href="#poptavka" data-type="Teambuilding">Poptat teambuilding →</a>
+      </div>
+    </article>
+    <article class="card card-mustard">
+      <img src="assets/stul-shora.jpg" alt="Společný stůl shora plný jídla a rukou" loading="lazy">
+      <div class="card-body">
+        <h3>Oslavy &amp; setkání</h3>
+        <p>Narozeniny, rozlučky, baby shower i rodinné srazy. Vezměte všechny, děti i psy.</p>
+        <a href="#poptavka" data-type="Oslava">Poptat oslavu →</a>
+      </div>
+    </article>
+    <article class="card card-sage">
+      <img src="assets/svetylka.jpg" alt="Světýlka nad zahradou za soumraku" loading="lazy">
+      <div class="card-body">
+        <h3>Vánoce &amp; Silvestr</h3>
+        <p>Krbová kamna, světýlka a celá vesnička, která patří vám. V zimě až pro 50 hostů.</p>
+        <a href="#poptavka" data-type="Večírek">Poptat večírek →</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- SVATEBNI DEN -->
+<section class="section section-cream" id="svatba-den">
+  <header class="section-head">
+    <p class="eyebrow">Svatby</p>
+    <h2>Svatba <em>bez scénáře z katalogu</em></h2>
+    <p class="lead narrow">Žádné hotelové sály a stopky. U nás se může obřad odehrát tam, kde vám to dává smysl, a zbytek dne si ušijete sami.</p>
+  </header>
+
+  <ol class="timeline">
+    <li>
+      <img src="assets/prsten-reka.jpg" alt="Ruce s prstenem u řeky" loading="lazy">
+      <h3>Obřad</h3>
+      <p>Pod dubem, u bazénu, na vyhlídce nad soutokem, na skále nebo v lese. Na déšť jsou přichystané varianty.</p>
+    </li>
+    <li>
+      <img src="assets/stan-pes.jpg" alt="Beduínský stan se světýlky na louce" loading="lazy">
+      <h3>Hostina</h3>
+      <p>Raut, tabule nebo piknik na louce. Vlastní catering i dodavatelé bez příplatku, vybavená gastro kuchyně k dispozici.</p>
+    </li>
+    <li>
+      <img src="assets/noc-bazen.jpg" alt="Noční obloha s hvězdami a svítícím bazénem" loading="lazy">
+      <h3>Večer</h3>
+      <p>Tanec v hlavní chatě nebo pod stanem, bar s pípou, ohniště, bazén pod hvězdami.</p>
+    </li>
+    <li>
+      <img src="assets/loznice.jpg" alt="Útulná ložnice v domečku" loading="lazy">
+      <h3>Ráno</h3>
+      <p>Hosté spí ve vlastních domečcích, snídani si dáte spolu. Nikdo nikam nespěchá.</p>
+    </li>
+  </ol>
+
+  <p class="chips-title">Obřad můžete mít tady</p>
+  <ul class="chips">
+    <li>pod starým dubem</li><li>u bazénu</li><li>na terase</li><li>na vyhlídce u soutoku</li>
+    <li>na skále</li><li>na louce</li><li>v lese</li><li>na posedu</li><li>u řeky</li>
+  </ul>
+</section>
+
+<!-- DOMECKY -->
+<section class="section" id="domecky">
+  <header class="section-head">
+    <p class="eyebrow">Ubytování</p>
+    <h2>21 domečků, <em>každý s vlastním grilem a houpací sítí</em></h2>
+  </header>
+  <div class="houses">
+    <div class="house-photos">
+      <img src="assets/domecek-cerveny.jpg" alt="Červený domeček na louce" loading="lazy">
+      <img src="assets/veranda.jpg" alt="Bílá veranda s květinami" loading="lazy">
+    </div>
+    <div class="house-types" id="houseTypes" aria-label="Typy domečků"></div>
+    <aside class="house-calc">
+      <h3>Kolik domečků potřebujete?</h3>
+      <label>Počet hostů na přespání
+        <input type="range" id="sleepRange" min="2" max="90" value="30">
+      </label>
+      <p class="calc-out" id="sleepOut"></p>
+    </aside>
+  </div>
+</section>
+
+<!-- PUJCOVNA -->
+<section class="section section-dark" id="pujcovna">
+  <header class="section-head">
+    <p class="eyebrow">Nově na webu</p>
+    <h2>Půjčovna: <em>namixujte si svůj Oslov</em></h2>
+    <p class="lead narrow">Vyberte si kolekci, zaškrtněte, co se vám hodí, a balíček rovnou pošlete do poptávky. Žádné telefonování. Obsah kolekcí je zde zástupný, doplní klient.</p>
+  </header>
+
+  <div class="rental">
+    <div class="rental-tabs" id="rentalTabs" role="tablist" aria-label="Tematické kolekce"></div>
+    <div class="rental-items" id="rentalItems" role="tabpanel"></div>
+    <aside class="rental-cart">
+      <h3>Váš balíček</h3>
+      <ul id="cartList"><li class="muted">Zatím nic nevybráno</li></ul>
+      <button class="btn btn-light" id="cartSend" type="button" disabled>Přidat do poptávky</button>
+    </aside>
+  </div>
+</section>
+
+<!-- KALENDAR -->
+<section class="section" id="kalendar">
+  <header class="section-head">
+    <p class="eyebrow">Volné termíny</p>
+    <h2>Kalendář, <em>který se dá kliknout</em></h2>
+    <p class="lead narrow">Místo odkazu na tabulku vidí zájemce volné víkendy přímo na webu. Ukázková data, napojí se na stávající kalendář klienta.</p>
+  </header>
+  <div class="cal" id="cal">
+    <div class="cal-bar">
+      <button type="button" class="cal-nav" id="calPrev" aria-label="Předchozí měsíc">←</button>
+      <h3 id="calTitle"></h3>
+      <button type="button" class="cal-nav" id="calNext" aria-label="Další měsíc">→</button>
+    </div>
+    <div class="cal-grid" id="calGrid" role="grid"></div>
+    <p class="cal-legend"><span class="dot free"></span> volno <span class="dot busy"></span> obsazeno</p>
+  </div>
+</section>
+
+<!-- POPTAVKA -->
+<section class="section section-red" id="poptavka">
+  <div class="inquiry">
+    <header>
+      <p class="eyebrow">Poptávka</p>
+      <h2>Napište nám, <em>co si představujete</em></h2>
+      <p class="lead">Odpovíme do dvou pracovních dnů. Rezervaci prohlídky domluvíme na místě mezi domečky.</p>
+    </header>
+    <form id="inquiryForm" novalidate>
+      <div class="row">
+        <label>Jméno<input name="jmeno" required autocomplete="name"></label>
+        <label>E-mail<input name="email" type="email" required autocomplete="email"></label>
+      </div>
+      <div class="row">
+        <label>Typ akce
+          <select name="typ">
+            <option>Svatba</option><option>Oslava</option><option>Teambuilding</option><option>Večírek</option><option>Jiné</option>
+          </select>
+        </label>
+        <label>Počet hostů<input name="hostu" type="number" min="1" value="40"></label>
+        <label>Termín<input name="datum" type="date"></label>
+      </div>
+      <label>Balíček z půjčovny<textarea name="pujcovna" rows="2" placeholder="Vybraný balíček se objeví zde"></textarea></label>
+      <label>Zpráva<textarea name="zprava" rows="4" placeholder="Pár vět o tom, co plánujete"></textarea></label>
+      <button class="btn btn-light" type="submit">Odeslat poptávku</button>
+      <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div>
+    <strong>Malý Oslov Glamping</strong><br>
+    Oslov ev. č. 47, 398 35 Oslov
+  </div>
+  <div>
+    <a href="mailto:rezervace@malyoslov.cz">rezervace@malyoslov.cz</a><br>
+    <a href="tel:+420773678955">+420 773 678 955</a>
+  </div>
+  <div>
+    <a href="https://instagram.com/malyoslov">Instagram</a> · <a href="https://facebook.com/malyoslov">Facebook</a><br>
+    #osLOVE #slowliving
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<a href="../../" style="position:fixed;left:12px;bottom:12px;z-index:9999;background:#34302c;color:#fff;font:500 13px/1 system-ui,sans-serif;padding:10px 14px;border-radius:999px;text-decoration:none;box-shadow:0 8px 24px -10px rgba(0,0,0,.5)">Záloha z 2026-10-10 · aktuální verze →</a>
+</body>
+</html>

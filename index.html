@@ -1,21 +1,23 @@
 <!doctype html>
 <html lang="cs">
 <head>
+<!-- Aktuální verze návrhu webu Malý Oslov. Styly jsou ve web.css, starší verze jsou zmrazené ve složce archiv/. -->
 <meta charset="utf-8">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Malý Oslov Glamping | Pronajměte si celou vesničku</title>
+<script>document.documentElement.classList.add("js");</script>
+<title>Malý Oslov Glamping | Unikátní glampingová vesnička</title>
 <meta name="description" content="21 domečků, bazén a velká společenská chata nad soutokem Otavy a Lomnice. Celý areál jen pro vaši svatbu, oslavu nebo firemní akci. Hodinu z Prahy.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="navrh-a.css">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="web.css">
 </head>
 <body>
 
 <header class="top">
-  <div class="wrap top-in">
-    <a class="logo" href="#" aria-label="Malý Oslov Glamping, úvodní stránka"><img src="assets/logo.png" alt="Malý Oslov Glamping" width="620" height="420"></a>
+  <div class="top-in">
+    <a class="logo" href="#" aria-label="Malý Oslov Glamping, úvodní stránka"><img class="logo-dark" src="assets/logo.png" alt="Malý Oslov Glamping" width="620" height="420"><img class="logo-light" src="assets/logo-white.png" alt="" width="620" height="420"></a>
     <nav class="nav" aria-label="Hlavní navigace">
       <a href="#akce">Svatby</a>
       <a href="#akce">Oslavy</a>
@@ -28,41 +30,43 @@
     <div class="top-side">
       <a class="lang" href="#" lang="en" aria-label="English version">EN</a>
       <a class="btn" href="#kontakt">Poptat termín</a>
+      <details class="menu">
+        <summary aria-label="Otevřít menu"><span></span></summary>
+        <nav aria-label="Mobilní navigace">
+          <a href="#akce">Svatby</a>
+          <a href="#akce">Oslavy</a>
+          <a href="#akce">Firemní akce</a>
+          <a href="#v-cene">Areál</a>
+          <a href="#domecky">Domečky</a>
+          <a href="#cenik">Ceník</a>
+          <a href="#kontakt">Volné termíny</a>
+          <a href="#" lang="en">English</a>
+        </nav>
+      </details>
     </div>
-    <details class="menu">
-      <summary aria-label="Otevřít menu"><span></span></summary>
-      <nav aria-label="Mobilní navigace">
-        <a href="#akce">Svatby</a>
-        <a href="#akce">Oslavy</a>
-        <a href="#akce">Firemní akce</a>
-        <a href="#v-cene">Areál</a>
-        <a href="#domecky">Domečky</a>
-        <a href="#cenik">Ceník</a>
-        <a href="#kontakt">Volné termíny</a>
-        <a href="#" lang="en">English</a>
-      </nav>
-    </details>
   </div>
 </header>
 
 <main>
 
-<section class="wrap hero">
+<section class="hero">
   <div class="hero-frame">
     <!-- Den v Malém Oslově: ráno v chatě, domeček, odpoledne u bazénu, tanec na louce, večer s lucernami.
          Fotky se pomalu prolínají. Kdyby se natočilo video, nahradí celý blok .hero-media:
          <video src="assets/hero.mp4" poster="assets/hero-chata-rano.jpg" autoplay muted loop playsinline></video> -->
     <div class="hero-media" aria-hidden="true">
-      <img src="assets/hero-chata-rano.jpg" srcset="assets/hero-chata-rano-m.jpg 1200w, assets/hero-chata-rano.jpg 2400w" sizes="(min-width: 1720px) 1624px, calc(100vw - 32px)" alt="" width="2400" height="1599" fetchpriority="high">
-      <img src="assets/hero-domecek-nebesa.jpg" srcset="assets/hero-domecek-nebesa-m.jpg 1200w, assets/hero-domecek-nebesa.jpg 2400w" sizes="(min-width: 1720px) 1624px, calc(100vw - 32px)" alt="" width="2400" height="1800" fetchpriority="low" decoding="async">
-      <img src="assets/hero-bazen.jpg" srcset="assets/hero-bazen-m.jpg 1200w, assets/hero-bazen.jpg 2400w" sizes="(min-width: 1720px) 1624px, calc(100vw - 32px)" alt="" width="2400" height="1599" fetchpriority="low" decoding="async">
-      <img src="assets/hero-tanec-louka.jpg" srcset="assets/hero-tanec-louka-m.jpg 1200w, assets/hero-tanec-louka.jpg 2400w" sizes="(min-width: 1720px) 1624px, calc(100vw - 32px)" alt="" width="2400" height="1599" fetchpriority="low" decoding="async">
-      <img src="assets/hero-chata-vecer.jpg" srcset="assets/hero-chata-vecer-m.jpg 1200w, assets/hero-chata-vecer.jpg 2000w" sizes="(min-width: 1720px) 1624px, calc(100vw - 32px)" alt="" width="2000" height="2000" fetchpriority="low" decoding="async">
+      <img src="assets/hero-chata-rano.jpg" srcset="assets/hero-chata-rano-m.jpg 1200w, assets/hero-chata-rano.jpg 2400w" sizes="100vw" alt="" width="2400" height="1599" fetchpriority="high">
+      <img src="assets/hero-domecek-nebesa.jpg" srcset="assets/hero-domecek-nebesa-m.jpg 1200w, assets/hero-domecek-nebesa.jpg 2400w" sizes="100vw" alt="" width="2400" height="1800" fetchpriority="low" decoding="async">
+      <img src="assets/hero-bazen.jpg" srcset="assets/hero-bazen-m.jpg 1200w, assets/hero-bazen.jpg 2400w" sizes="100vw" alt="" width="2400" height="1599" fetchpriority="low" decoding="async">
+      <img src="assets/hero-tanec-louka.jpg" srcset="assets/hero-tanec-louka-m.jpg 1200w, assets/hero-tanec-louka.jpg 2400w" sizes="100vw" alt="" width="2400" height="1599" fetchpriority="low" decoding="async">
+      <img src="assets/hero-chata-vecer.jpg" srcset="assets/hero-chata-vecer-m.jpg 1200w, assets/hero-chata-vecer.jpg 2000w" sizes="100vw" alt="" width="2000" height="2000" fetchpriority="low" decoding="async">
+    </div>
+    <div class="hero-title">
+      <h1>Unikátní glampingová vesnička</h1>
     </div>
   </div>
-  <h1>Pronajměte si celou vesničku</h1>
-  <div class="hero-row">
-    <p class="lead">21 domečků, bazén, velká společenská chata a&nbsp;louka nad soutokem Otavy a&nbsp;Lomnice. Na svatbu, oslavu nebo firemní výjezd tu budete jen vy a&nbsp;lidé, které si pozvete.</p>
+  <div class="wrap hero-row">
+    <p class="lead">21 domečků, bazén, velká společenská chata a&nbsp;louka nad soutokem Otavy a&nbsp;Lomnice. Pronajmete si celou vesničku, takže na svatbě, oslavě nebo firemním výjezdu tu budete jen vy a&nbsp;lidé, které si pozvete.</p>
     <div class="actions">
       <a class="btn btn-lg" href="#kontakt">Zobrazit volné termíny</a>
       <a class="btn btn-lg btn-ghost" href="#cele-vase">Jak pronájem funguje</a>
@@ -75,9 +79,23 @@
     <div><dt>21</dt><dd>domečků různých velikostí</dd></div>
     <div><dt>82</dt><dd>lůžek v&nbsp;létě, 50 v&nbsp;zimě</dd></div>
     <div><dt>130</dt><dd>hostů na jedné akci</dd></div>
-    <div><dt>25&nbsp;000&nbsp;m²</dt><dd>louky a&nbsp;lesa u&nbsp;řeky</dd></div>
+    <div><dt>25&nbsp;000&nbsp;m<sup>2</sup></dt><dd>louky a&nbsp;lesa u&nbsp;řeky</dd></div>
     <div><dt>1 hodina</dt><dd>autem z&nbsp;Prahy</dd></div>
   </dl>
+</section>
+
+<section class="wrap band" aria-label="Fotografie z Malého Oslova">
+  <div class="band-row">
+    <figure style="--r: 1.347"><img src="assets/sl-domecek-bily.jpg" alt="Bílý domeček s modrými okenicemi na louce, za stromy jezero" width="1200" height="891" loading="lazy"></figure>
+    <figure style="--r: .666"><img src="assets/sl-toceni.jpg" alt="Žena v bílých šatech se točí v tanci na terase u bazénu" width="799" height="1200" loading="lazy"></figure>
+    <figure style="--r: 1.359"><img src="assets/sl-okno.jpg" alt="Otevřené okno modrého domečku s bílými okenicemi a postelí uvnitř" width="1200" height="883" loading="lazy"></figure>
+  </div>
+  <div class="band-row">
+    <figure style="--r: .75"><img src="assets/sl-veranda-kytky.jpg" alt="Bílá veranda domečku s kyticí lučních květin" width="900" height="1200" loading="lazy"></figure>
+    <figure style="--r: 1.333"><img src="assets/sl-les-reka.jpg" alt="Borovice na skalách nad řekou" width="1200" height="900" loading="lazy"></figure>
+    <figure style="--r: .75"><img src="assets/sl-vyhlidka.jpg" alt="Vyhlídka ze skal na soutok řek při západu slunce" width="900" height="1200" loading="lazy"></figure>
+    <figure style="--r: 1.333"><img src="assets/sl-louka.jpg" alt="Louka s naskládanými kmeny v podvečerním světle" width="1200" height="900" loading="lazy"></figure>
+  </div>
 </section>
 
 <section class="wrap split" id="cele-vase">
@@ -120,41 +138,42 @@
   </ul>
 </section>
 
-<section class="wrap occasions" id="akce">
-  <div class="head">
-    <h2>Na co si lidé Oslov půjčují</h2>
-    <p>Čtyři nejčastější důvody. Když máte jiný, napište nám ho.</p>
-  </div>
-  <div class="tiles">
-    <a class="tile tile-1" href="#">
-      <figure class="photo"><img src="assets/novomanzele-stan.jpg" alt="Smějící se novomanželé s dítětem v náručí, za nimi plachta beduínského stanu" width="2000" height="1333" loading="lazy"></figure>
-      <h3>Svatby</h3>
-      <p>Obřad, hostina, tanec i&nbsp;nocleh pro všechny hosty na jednom místě. Ráno se nikam nejede, snídá se spolu.</p>
-      <span class="more">Svatby v&nbsp;Oslově</span>
-    </a>
-    <a class="tile tile-2" href="#">
-      <figure class="photo"><img src="assets/bubliny.jpg" alt="Holčička ve žlutých šatech běží po louce za velkými bublinami" width="1500" height="1500" loading="lazy"></figure>
-      <h3>Oslavy a&nbsp;setkání</h3>
-      <p>Kulatiny, rozlučky nebo sraz po dvaceti letech. Každý má svůj domeček a&nbsp;nikdo nemusí řídit domů.</p>
-      <span class="more">Oslavy a&nbsp;setkání</span>
-    </a>
-    <a class="tile tile-3" href="#">
-      <figure class="photo"><img src="assets/kapela.jpg" alt="Kapela hraje večer u bazénu pod řetězy světel" width="1200" height="1500" loading="lazy"></figure>
-      <h3>Firemní akce</h3>
-      <p>Teambuilding, offsite nebo letní party. Zázemí na workshop a&nbsp;místo, kde se tým potká jinak než v&nbsp;kanceláři.</p>
-      <span class="more">Akce pro firmy</span>
-    </a>
-    <a class="tile tile-4" href="#">
-      <figure class="photo"><img src="assets/chata-vecer.jpg" alt="Rozsvícená společenská chata s verandou za soumraku" width="1700" height="1237" loading="lazy"></figure>
-      <h3>Vánoce a&nbsp;Silvestr</h3>
-      <p>V&nbsp;zimě pro 50 hostů. Krbová kamna, světýlka a&nbsp;vesnička, kde se svítí jen u&nbsp;vás.</p>
-      <span class="more">Zimní večírky</span>
-    </a>
+<section class="wrap occ" id="akce">
+  <div class="occ-panel">
+    <div class="head occ-head">
+      <h2>Na co si lidé Oslov půjčují</h2>
+      <p>Čtyři nejčastější důvody. Když máte jiný, napište nám ho.</p>
+    </div>
+    <div class="occ-row">
+      <a class="occ-card" href="#">
+        <figure class="occ-arch"><img src="assets/occ-svatby.jpg" alt="Ruce novomanželů se zásnubním prstenem nad řekou" width="666" height="1000" loading="lazy"></figure>
+        <h3>Svatby</h3>
+        <p>Obřad, hostina, tanec i&nbsp;nocleh pro všechny hosty na jednom místě. Ráno se nikam nejede, snídá se spolu.</p>
+        <span class="more">Svatby v&nbsp;Oslově</span>
+      </a>
+      <a class="occ-card" href="#">
+        <figure class="occ-arch"><img src="assets/occ-oslavy.jpg" alt="Podzimní tabule s květinami před rozsvícenou společenskou chatou" width="800" height="1000" loading="lazy"></figure>
+        <h3>Oslavy a&nbsp;setkání</h3>
+        <p>Kulatiny, rozlučky nebo sraz po dvaceti letech. Každý má svůj domeček a&nbsp;nikdo nemusí řídit domů.</p>
+        <span class="more">Oslavy a&nbsp;setkání</span>
+      </a>
+      <a class="occ-card" href="#">
+        <figure class="occ-arch"><img src="assets/occ-firmy.jpg" alt="Dlouhý dřevěný stůl ve společenské chatě pod světýlky" width="750" height="1000" loading="lazy"></figure>
+        <h3>Firemní akce</h3>
+        <p>Teambuilding, offsite nebo letní party. Zázemí na workshop a&nbsp;místo, kde se tým potká jinak než v&nbsp;kanceláři.</p>
+        <span class="more">Akce pro firmy</span>
+      </a>
+      <a class="occ-card" href="#">
+        <figure class="occ-arch"><img src="assets/occ-vanoce.jpg" alt="Oheň v krbových kamnech a naštípané dřevo" width="667" height="1000" loading="lazy"></figure>
+        <h3>Vánoce a&nbsp;Silvestr</h3>
+        <p>V&nbsp;zimě pro 50 hostů. Krbová kamna, světýlka a&nbsp;vesnička, kde se svítí jen u&nbsp;vás.</p>
+        <span class="more">Zimní večírky</span>
+      </a>
+    </div>
   </div>
 </section>
 
 <section class="wrap" id="v-cene">
-  <div class="kiosk-shadow"><div class="awning" aria-hidden="true"></div></div>
   <div class="kiosk">
     <div class="kiosk-a">
     <div class="kiosk-head">
@@ -163,7 +182,7 @@
     </div>
     <figure class="photo kiosk-photo">
       <img src="assets/chata-interier.jpg" alt="Světlý interiér společenské chaty s pohovkami, dlouhým stolem a proutěnými lampami" width="2000" height="1331" loading="lazy">
-      <figcaption>Společenská chata: 75&nbsp;m² uvnitř a&nbsp;dalších 70&nbsp;m² na kryté terase</figcaption>
+      <figcaption>Společenská chata: 75&nbsp;m<sup>2</sup> uvnitř a&nbsp;dalších 70&nbsp;m<sup>2</sup> na kryté terase</figcaption>
     </figure>
     </div>
     <div class="kiosk-b">
@@ -175,7 +194,7 @@
       <li>Bar s&nbsp;pípou a&nbsp;výrobníkem ledu</li>
       <li>Nádobí, sklo a&nbsp;sváteční servis pro 82 hostů</li>
       <li>Bazén s&nbsp;dřevěnou terasou a&nbsp;lehátky</li>
-      <li>Taneční parket 150&nbsp;m², ozvučení a&nbsp;projektor</li>
+      <li>Taneční parket 150&nbsp;m<sup>2</sup>, ozvučení a&nbsp;projektor</li>
       <li>Ohniště, velký gril a&nbsp;gril u&nbsp;každého domečku</li>
       <li>Hřiště a&nbsp;sportovní vybavení včetně paddleboardů</li>
       <li>Místnost pro floristky se čtyřmi dřezy</li>
@@ -315,7 +334,7 @@
     </details>
     <details>
       <summary>Co když bude pršet?</summary>
-      <p>Společenská chata, krytá terasa a&nbsp;parket zastřešený beduínským stanem dají dohromady skoro 300&nbsp;m² pod střechou pro 130 hostů.</p>
+      <p>Společenská chata, krytá terasa a&nbsp;parket zastřešený beduínským stanem dají dohromady skoro 300&nbsp;m<sup>2</sup> pod střechou pro 130 hostů.</p>
     </details>
     <details>
       <summary>Mají domečky vlastní koupelnu?</summary>
@@ -369,7 +388,10 @@
       <a href="#">Kalendář termínů</a>
     </nav>
   </div>
-  <div class="wrap foot-legal">© 2026 Mevris Group s. r.&nbsp;o. · Pracovní návrh nového webu. Ceny a&nbsp;texty jsou orientační.</div>
+  <div class="wrap foot-legal">
+    <span>© 2026 MalyOslov.cz · Pracovní návrh nového webu. Ceny a&nbsp;texty jsou orientační.</span>
+    <span>Webdesign by <a href="https://elaborate.digital" target="_blank" rel="noopener">elaborate.digital</a></span>
+  </div>
 </footer>
 
 <div class="dock">
@@ -378,12 +400,18 @@
 </div>
 
 <script>
-/* Hlavička je nahoře průhledná a splývá s pozadím. Po odscrollování dostane rozmazané pozadí. */
+/* Hlavička je nad úvodní fotkou průhledná s bílým písmem. Jakmile fotka odjede pod hlavičku, změní se v plovoucí lištu.
+   Hranice je pevná (124 px od horního okraje okna), aby hlavička při změně výšky neblikala. */
 (function () {
   var header = document.querySelector(".top");
+  var frame = document.querySelector(".hero-frame");
   if (!header) return;
-  function update() { header.classList.toggle("is-scrolled", window.scrollY > 8); }
+  function update() {
+    var overPhoto = frame && frame.getBoundingClientRect().bottom > 124;
+    header.classList.toggle("is-scrolled", !overPhoto);
+  }
   window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
   update();
 })();
 </script>
