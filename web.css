@@ -28,7 +28,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 96px; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; scroll-padding-top: 108px; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0; color: var(--ink);
   /* nahoře a dole přechod z béžové do světle modré, uprostřed béžová */
@@ -70,10 +70,10 @@ main > section + section { margin-top: var(--sec); }
 .link:hover::after, a:hover .more::after { transform: translateX(4px); }
 
 /* hlavička
-   Leží uvnitř úvodní fotky: bez pozadí, bílé písmo, přes celou šířku. Jakmile fotka odjede, změní se v plovoucí lištu
-   s rozmazaným pozadím. Bez JavaScriptu (bez třídy .js na <html>) je hlavička rovnou lišta, aby byla čitelná všude. */
+   Nahoře stránky leží uvnitř úvodní fotky: bez pozadí, bílé písmo, přes celou šířku. Při prvním posunutí stránky
+   se změní ve světlou plovoucí lištu s rozmazaným pozadím. Bez JavaScriptu (bez třídy .js na <html>) je hlavička rovnou lišta, aby byla čitelná všude. */
 .top {
-  --top-h: 72px; --logo-h: 46px;
+  --top-h: 80px; --logo-h: 60px;
   position: fixed; z-index: 50; top: var(--gap); left: var(--gap); right: var(--gap);
   border-radius: var(--r-lg); color: var(--ink);
   background: rgba(247, 242, 232, .84); backdrop-filter: blur(14px) saturate(1.1); -webkit-backdrop-filter: blur(14px) saturate(1.1);
@@ -98,7 +98,7 @@ main > section + section { margin-top: var(--sec); }
 .menu nav a { text-decoration: none; padding: 13px 0; border-top: 1px solid var(--line); }
 .menu nav a:first-child { border-top: 0; }
 /* nad úvodní fotkou */
-.js .top:not(.is-scrolled) { --top-h: 96px; --logo-h: 58px; background: transparent; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; color: var(--on-photo); }
+.js .top:not(.is-scrolled) { --top-h: 112px; --logo-h: 80px; background: transparent; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; color: var(--on-photo); }
 .js .top:not(.is-scrolled) .logo-dark { display: none; }
 .js .top:not(.is-scrolled) .logo-light { display: block; }
 .js .top:not(.is-scrolled) .nav a, .js .top:not(.is-scrolled) .lang { text-shadow: 0 1px 2px rgba(20, 16, 12, .35), 0 0 18px rgba(20, 16, 12, .45); }
@@ -145,11 +145,11 @@ figcaption {
 }
 /* pět fotek, každá zhruba 6 s, prolnutí 1,2 s, pomalý zoom */
 .hero-media img { opacity: 0; animation: hero-fade 30s infinite both; }
-.hero-media img:nth-child(1) { animation-delay: -1.2s; object-position: 50% 60%; }
-.hero-media img:nth-child(2) { animation-delay: 4.8s; object-position: 50% 62%; }
-.hero-media img:nth-child(3) { animation-delay: 10.8s; object-position: 50% 58%; }
-.hero-media img:nth-child(4) { animation-delay: 16.8s; object-position: 50% 45%; }
-.hero-media img:nth-child(5) { animation-delay: 22.8s; object-position: 50% 68%; }
+.hero-media img:nth-child(1) { animation-delay: -1.2s; object-position: 50% 62%; }
+.hero-media img:nth-child(2) { animation-delay: 4.8s; object-position: 50% 58%; }
+.hero-media img:nth-child(3) { animation-delay: 10.8s; object-position: 50% 45%; }
+.hero-media img:nth-child(4) { animation-delay: 16.8s; object-position: 50% 68%; }
+.hero-media img:nth-child(5) { animation-delay: 22.8s; object-position: 50% 60%; }
 @keyframes hero-fade {
   0% { opacity: 0; transform: scale(1.02); }
   4% { opacity: 1; }
@@ -318,7 +318,7 @@ main > .facts { margin-top: clamp(36px, 4.4vw, 68px); }
 /* footer */
 .foot { margin-top: var(--sec); padding-bottom: 28px; font-size: 1rem; }
 .foot-in { display: grid; grid-template-columns: minmax(0, 5fr) repeat(3, minmax(0, 2.33fr)); gap: 32px clamp(20px, 3vw, 48px); padding-top: clamp(36px, 4vw, 64px); padding-bottom: clamp(36px, 4vw, 64px); border-top: 1px solid var(--line); }
-.foot .logo img { height: 92px; }
+.foot .logo img { height: 92px; width: auto; }
 .foot nav { display: grid; gap: 8px; align-content: start; }
 .foot nav a { text-decoration: none; }
 .foot nav a:hover { text-decoration: underline; text-underline-offset: .28em; text-decoration-thickness: 1px; }
@@ -345,8 +345,8 @@ main > .facts { margin-top: clamp(36px, 4.4vw, 68px); }
 
 @media (max-width: 900px) {
   body { font-size: 1.0625rem; }
-  .top { --top-h: 64px; --logo-h: 40px; }
-  .js .top:not(.is-scrolled) { --top-h: 76px; --logo-h: 46px; }
+  .top { --top-h: 72px; --logo-h: 54px; }
+  .js .top:not(.is-scrolled) { --top-h: 88px; --logo-h: 64px; }
   .split, .pricing, .faq, .press { grid-template-columns: minmax(0, 1fr); }
   .split-intro, .faq-head { position: static; }
   .press blockquote { grid-column: 1; }
@@ -365,14 +365,15 @@ main > .facts { margin-top: clamp(36px, 4.4vw, 68px); }
   /* dole je lišta s tlačítky, úvodní fotka končí nad ní */
   :root { --dock-h: 67px; }
   .hero-frame { min-height: 440px; }
-  /* na výšku je vidět jen třetina šířky fotky: ať jsou u první fotky vidět obě tváře */
-  .hero-media img:nth-child(1) { object-position: 56% 50%; }
+  /* na výšku je vidět jen třetina šířky fotky: ať jsou u páru v chatě vidět obě tváře */
+  .hero-media img:nth-child(5) { object-position: 56% 50%; }
   .hero-media::after {
     background:
       linear-gradient(to bottom, rgba(24, 20, 16, .55), rgba(24, 20, 16, .2) 12%, rgba(24, 20, 16, 0) 26%),
       linear-gradient(to top, rgba(24, 20, 16, .6), rgba(24, 20, 16, 0) 52%);
   }
   .top-side .btn { display: none; }
+  .hero-title h1 { text-align: center; }
   .closing-stripes, .pricing-stripes { padding-block: 28px; }
   .arrows { display: none; }
   .facts dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -383,8 +384,9 @@ main > .facts { margin-top: clamp(36px, 4.4vw, 68px); }
   .tile-1, .tile-2, .tile-3, .tile-4 { grid-column: 1 / -1; }
   .tile .photo, .tile-3 .photo, .tile-4 .photo { aspect-ratio: 4 / 3; }
   .checks { columns: 1; }
-  .press ul { display: grid; gap: 0; }
-  .press li:not(:last-child)::after { content: none; }
+  /* média vedle sebe s lomítky jako na desktopu, jen menší */
+  .press ul { font-size: 1.35rem; gap: .15em .6em; }
+  .press li:not(:last-child)::after { margin-left: .6em; }
   .house-row { grid-auto-columns: 68vw; }
   .steps li { grid-template-columns: 3rem minmax(0, 1fr); }
   .strip { height: 64vw; }

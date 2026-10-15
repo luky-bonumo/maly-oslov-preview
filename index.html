@@ -51,15 +51,15 @@
 
 <section class="hero">
   <div class="hero-frame">
-    <!-- Den v Malém Oslově: ráno v chatě, domeček, odpoledne u bazénu, tanec na louce, večer s lucernami.
+    <!-- Pořadí fotek: domeček s nebesy, odpoledne u bazénu, tanec na louce, večer s lucernami, pár ve společenské chatě.
          Fotky se pomalu prolínají. Kdyby se natočilo video, nahradí celý blok .hero-media:
          <video src="assets/hero.mp4" poster="assets/hero-chata-rano.jpg" autoplay muted loop playsinline></video> -->
     <div class="hero-media" aria-hidden="true">
-      <img src="assets/hero-chata-rano.jpg" srcset="assets/hero-chata-rano-m.jpg 1200w, assets/hero-chata-rano.jpg 2400w" sizes="100vw" alt="" width="2400" height="1599" fetchpriority="high">
-      <img src="assets/hero-domecek-nebesa.jpg" srcset="assets/hero-domecek-nebesa-m.jpg 1200w, assets/hero-domecek-nebesa.jpg 2400w" sizes="100vw" alt="" width="2400" height="1800" fetchpriority="low" decoding="async">
+      <img src="assets/hero-domecek-nebesa.jpg" srcset="assets/hero-domecek-nebesa-m.jpg 1200w, assets/hero-domecek-nebesa.jpg 2400w" sizes="100vw" alt="" width="2400" height="1800" fetchpriority="high">
       <img src="assets/hero-bazen.jpg" srcset="assets/hero-bazen-m.jpg 1200w, assets/hero-bazen.jpg 2400w" sizes="100vw" alt="" width="2400" height="1599" fetchpriority="low" decoding="async">
       <img src="assets/hero-tanec-louka.jpg" srcset="assets/hero-tanec-louka-m.jpg 1200w, assets/hero-tanec-louka.jpg 2400w" sizes="100vw" alt="" width="2400" height="1599" fetchpriority="low" decoding="async">
       <img src="assets/hero-chata-vecer.jpg" srcset="assets/hero-chata-vecer-m.jpg 1200w, assets/hero-chata-vecer.jpg 2000w" sizes="100vw" alt="" width="2000" height="2000" fetchpriority="low" decoding="async">
+      <img src="assets/hero-chata-rano.jpg" srcset="assets/hero-chata-rano-m.jpg 1200w, assets/hero-chata-rano.jpg 2400w" sizes="100vw" alt="" width="2400" height="1599" fetchpriority="low" decoding="async">
     </div>
     <div class="hero-title">
       <h1>Unikátní glampingová vesnička</h1>
@@ -400,18 +400,12 @@
 </div>
 
 <script>
-/* Hlavička je nad úvodní fotkou průhledná s bílým písmem. Jakmile fotka odjede pod hlavičku, změní se v plovoucí lištu.
-   Hranice je pevná (124 px od horního okraje okna), aby hlavička při změně výšky neblikala. */
+/* Hlavička je nahoře stránky průhledná s bílým písmem nad úvodní fotkou. Při prvním posunutí se přepne do světlé lišty. */
 (function () {
   var header = document.querySelector(".top");
-  var frame = document.querySelector(".hero-frame");
   if (!header) return;
-  function update() {
-    var overPhoto = frame && frame.getBoundingClientRect().bottom > 124;
-    header.classList.toggle("is-scrolled", !overPhoto);
-  }
+  function update() { header.classList.toggle("is-scrolled", window.scrollY > 10); }
   window.addEventListener("scroll", update, { passive: true });
-  window.addEventListener("resize", update);
   update();
 })();
 </script>
