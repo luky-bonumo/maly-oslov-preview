@@ -304,7 +304,7 @@ main > .facts { margin-top: clamp(36px, 4.4vw, 68px); }
   .top-in { height: 72px; }
   .logo img { height: 44px; }
   .hero-frame { aspect-ratio: 16 / 9; max-height: none; }
-  .split, .pricing, .faq, .press { grid-template-columns: 1fr; }
+  .split, .pricing, .faq, .press { grid-template-columns: minmax(0, 1fr); }
   .split-intro, .faq-head { position: static; }
   .press blockquote { grid-column: 1; }
   .head { grid-template-columns: 1fr; align-items: start; }
@@ -336,6 +336,8 @@ main > .facts { margin-top: clamp(36px, 4.4vw, 68px); }
   .steps li { grid-template-columns: 3rem minmax(0, 1fr); }
   .strip { height: 64vw; }
   .actions .btn { width: 100%; }
+  /* tlačítko v ceníku se na úzkém telefonu smí zalomit, jinak roztáhne celou sekci */
+  .ticket-price .btn { width: 100%; white-space: normal; text-align: center; line-height: 1.25; }
   .hero-frame { aspect-ratio: 1; min-height: 0; }
   .foot-in { grid-template-columns: 1fr; }
   body { padding-bottom: 76px; }

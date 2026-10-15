@@ -24,10 +24,11 @@ h1, h2 { letter-spacing: -.018em; }
 /* citát v silném řezu potřebuje větší velikost, jinak působí hutně */
 .press blockquote p { font-size: clamp(1.3rem, .9vw + 1rem, 1.75rem); line-height: 1.3; }
 
-/* Modrá značky pro nadpisy, velká čísla, tlačítka a odkazy. Text, menu a patička zůstávají tmavé.
-   Vzorek #568ed7 je ztmavený kvůli čitelnosti: 5,3 : 1 na béžové, 4,7 : 1 na papírových kartičkách. */
-:root { --accent: #2a64b2; }
-h1, h2, h3, .count, .facts dt, .price, .steps li::before { color: var(--accent); }
+/* Barvy verze 2.
+   --accent: tmavší modrá na tlačítka a odkazy (vzorek #568ed7 ztmavený kvůli čitelnosti: 5,3 : 1 na béžové).
+   --blue-light: druhá modrá na plochy a pozadí. --mist: velmi světlá šedomodrá na klidné plochy.
+   Nadpisy a text jsou tmavé (barva --ink ze základu). */
+:root { --accent: #2a64b2; --blue-light: #81bfe0; --mist: #eceff4; }
 
 .btn { background: var(--accent); border-color: var(--accent); color: var(--white); }
 .btn:hover { background: transparent; color: var(--accent); }
@@ -90,4 +91,22 @@ main > .band { margin-top: clamp(40px, 5vw, 80px); }
   .occ-card { scroll-snap-align: start; }
   .occ-card:nth-child(even) { margin-top: 0; }
   .occ-arch { aspect-ratio: 3 / 4; }
+}
+
+/* ---------- druhá modrá a světlé plochy ---------- */
+/* Co všechno je v ceně: bez markýzy, celý panel ve světle modré */
+.kiosk { background: var(--blue-light); border-radius: var(--r-xl); margin-top: 0; }
+.kiosk .checks li { border-top-color: rgba(52, 48, 44, .22); }
+/* pruhy u ceníku ve stejné světle modré */
+.pricing-stripes { --stripe: var(--blue-light); }
+/* časté dotazy na klidné šedomodré ploše */
+.faq { background: var(--mist); border-radius: var(--r-xl); padding: clamp(28px, 5vw, 88px); max-width: calc(1720px - 2 * var(--pad)); width: calc(100% - 2 * var(--pad)); margin-inline: auto; }
+.faq-list details, .faq-list details:last-child { border-color: rgba(52, 48, 44, .18); }
+
+/* jednotky m²: horní index místo znaku ², ten některá písma nemají (Instrument Serif a Sans) */
+sup { font-size: .55em; line-height: 0; vertical-align: .55em; }
+
+/* Playfair 600 je širší než 400: „25 000 m²“ se na 360px telefonu musí trochu zmenšit */
+@media (max-width: 640px) {
+  .facts dt { font-size: 1.75rem; }
 }

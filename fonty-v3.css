@@ -1,0 +1,14 @@
+/* Verze 3: Bricolage Grotesque (nadpisy a velká čísla) + Hanken Grotesk (text).
+   Úzký grotesk s charakterem, nejblíž písmu z návrhu C. Načítá se po navrh-a2.css a mění jen písmo. */
+:root {
+  --serif: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --sans: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+h1, h2, h3,
+.facts dt, .count, .price, .steps li::before,
+.press ul, .press blockquote p, .faq-list summary {
+  font-weight: 650;
+  font-stretch: 85%;
+  letter-spacing: -.02em;
+}
+h1, h2 { letter-spacing: -.03em; }
