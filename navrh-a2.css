@@ -26,7 +26,7 @@ h1, h2 { letter-spacing: -.018em; }
 
 /* Barvy verze 2.
    --accent: tmavší modrá na tlačítka a odkazy (vzorek #568ed7 ztmavený kvůli čitelnosti: 5,3 : 1 na béžové).
-   --blue-light: druhá modrá na plochy a pozadí. --mist: velmi světlá šedomodrá (zatím nepoužitá).
+   --blue-light: druhá modrá na plochy a pozadí. --mist: nejsvětlejší modrá na klidné plochy (box „Na přání přidáme“).
    Nadpisy a text jsou tmavé (barva --ink ze základu). */
 :root { --accent: #2a64b2; --blue-light: #81bfe0; --mist: #eceff4; }
 
@@ -94,11 +94,11 @@ main > .band { margin-top: clamp(40px, 5vw, 80px); }
 }
 
 /* ---------- druhá modrá a bílé plochy ---------- */
-/* Co všechno je v ceně: bílý panel bez markýzy, „Na přání přidáme“ ve světle modré */
+/* Co všechno je v ceně: bílý panel bez markýzy, „Na přání přidáme“ v nejsvětlejší modré */
 .kiosk { background: var(--white); border-radius: var(--r-xl); margin-top: 0; }
-.kiosk .extras { background: var(--blue-light); }
+.kiosk .extras { background: var(--mist); }
 .kiosk .extras li { border-top-color: rgba(52, 48, 44, .22); }
-/* šedší text na modré by byl málo čitelný (při .72 jen 2,6 : 1), .85 dává asi 4,8 : 1 */
+/* šedší ceny o něco tmavší, ať jsou na modré ploše dobře čitelné */
 .kiosk .extras li span:last-child, .kiosk .note { opacity: .85; }
 /* pruhy u ceníku ve světle modré */
 .pricing-stripes { --stripe: var(--blue-light); }
@@ -125,3 +125,28 @@ sup { font-size: .55em; line-height: 0; vertical-align: .55em; }
 @media (max-width: 640px) {
   .facts dt { font-size: 1.75rem; }
 }
+
+/* ---------- H1 přes celou šířku úvodu ----------
+   Velikost písma se dopočítá z šířky úvodu (cqi = procento šířky kontejneru .hero).
+   --h1-k je šířka textu nadpisu v em pro dané písmo, změřená v prohlížeči. Při změně textu nadpisu
+   nebo písma je potřeba ji změřit znovu. Koeficient .985 je rezerva na rozdíly ve vykreslení mezi prohlížeči.
+   Na mobilu se nadpis dál zalamuje do dvou řádků. Prohlížeče bez container queries zůstanou u původní velikosti. */
+:root { --h1-k: 13.631; }
+@supports (font-size: 1cqi) {
+  @media (min-width: 641px) {
+    .hero { container-type: inline-size; }
+    .hero > * { --h1-fs: calc(100cqi / var(--h1-k) * .985); }
+    .hero h1 { font-size: var(--h1-fs); }
+  }
+  /* větší nadpis ubere výšku fotce, aby text pod ní zůstal na notebooku vidět bez scrollování */
+  @media (min-width: 901px) {
+    .hero-frame { max-height: calc(100vh - 262px - var(--h1-fs)); max-height: calc(100svh - 262px - var(--h1-fs)); }
+  }
+}
+
+/* čísla a popisky pod úvodem v modré tlačítek */
+.facts dt, .facts dd { color: var(--accent); }
+
+/* domečky: počet, název i popis na střed pod fotkou */
+.house-row li { display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; align-content: flex-start; column-gap: 10px; text-align: center; }
+.house-row li > .photo, .house-row li > p:last-child { flex: 0 0 100%; }

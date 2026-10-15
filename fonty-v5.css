@@ -12,9 +12,14 @@ h1, h2, h3,
   letter-spacing: -.01em;
 }
 /* úzké písmo snese větší velikosti */
-.hero h1 { font-size: clamp(2.9rem, 6vw + .4rem, 7.2rem); }
 h2 { font-size: clamp(2.2rem, 3.5vw + .6rem, 4.3rem); }
 h3 { font-size: clamp(1.5rem, 1vw + 1.15rem, 2.05rem); }
 .facts dt { font-size: clamp(2.3rem, 3vw + .7rem, 4rem); }
 .price { font-size: clamp(2.8rem, 4vw + .7rem, 5rem); }
 .faq-list summary { font-size: clamp(1.35rem, .8vw + 1.1rem, 1.8rem); }
+
+/* šířka textu H1 v em pro toto písmo (viz navrh-a2.css); na mobilu pevná velikost */
+:root { --h1-k: 10.391; }
+@media (max-width: 640px) {
+  .hero h1 { font-size: 2.9rem; }
+}

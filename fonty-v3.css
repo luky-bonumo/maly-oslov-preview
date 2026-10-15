@@ -12,3 +12,8 @@ h1, h2, h3,
   letter-spacing: -.02em;
 }
 h1, h2 { letter-spacing: -.03em; }
+
+/* šířka textu H1 v em pro toto písmo (viz navrh-a2.css) */
+:root { --h1-k: 10.163; }
+/* Bricolage mění šířku písmen podle velikosti (osa opsz). Pevná hodnota drží šířku nadpisu stejnou, jak byla změřena. */
+.hero h1 { font-variation-settings: "opsz" 96; }
