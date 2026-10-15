@@ -74,13 +74,16 @@ main > section + section { margin-top: var(--sec); }
    se změní ve světlou plovoucí lištu s rozmazaným pozadím. Bez JavaScriptu (bez třídy .js na <html>) je hlavička rovnou lišta, aby byla čitelná všude. */
 .top {
   --top-h: 80px; --logo-h: 60px;
-  position: fixed; z-index: 50; top: var(--gap); left: var(--gap); right: var(--gap);
+  /* lišta je užší než fotka: obsah zůstává na linii nadpisu a kolem něj je vnitřní okraj --bar-pad */
+  --bar-pad: clamp(12px, 1.4vw, 22px);
+  --bar-inset: calc(var(--gap) + var(--hero-pad) - var(--bar-pad));
+  position: fixed; z-index: 50; top: var(--gap); left: var(--bar-inset); right: var(--bar-inset);
   border-radius: var(--r-lg); color: var(--ink);
   background: rgba(247, 242, 232, .84); backdrop-filter: blur(14px) saturate(1.1); -webkit-backdrop-filter: blur(14px) saturate(1.1);
   box-shadow: 0 12px 32px -20px rgba(52, 48, 44, .5);
-  transition: background-color .3s, box-shadow .3s, color .3s;
+  transition: background-color .3s, box-shadow .3s, color .3s, left .3s, right .3s;
 }
-.top-in { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 24px; height: var(--top-h); padding-inline: var(--hero-pad); transition: height .3s; }
+.top-in { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 24px; height: var(--top-h); padding-inline: var(--bar-pad); transition: height .3s, padding .3s; }
 .top .logo { justify-self: start; }
 .top .logo img { height: var(--logo-h); width: auto; transition: height .3s; }
 .top .logo .logo-light { display: none; }
@@ -98,7 +101,8 @@ main > section + section { margin-top: var(--sec); }
 .menu nav a { text-decoration: none; padding: 13px 0; border-top: 1px solid var(--line); }
 .menu nav a:first-child { border-top: 0; }
 /* nad úvodní fotkou */
-.js .top:not(.is-scrolled) { --top-h: 112px; --logo-h: 80px; background: transparent; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; color: var(--on-photo); }
+.js .top:not(.is-scrolled) { --top-h: 112px; --logo-h: 80px; left: var(--gap); right: var(--gap); background: transparent; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; color: var(--on-photo); }
+.js .top:not(.is-scrolled) .top-in { padding-inline: var(--hero-pad); }
 .js .top:not(.is-scrolled) .logo-dark { display: none; }
 .js .top:not(.is-scrolled) .logo-light { display: block; }
 .js .top:not(.is-scrolled) .nav a, .js .top:not(.is-scrolled) .lang { text-shadow: 0 1px 2px rgba(20, 16, 12, .35), 0 0 18px rgba(20, 16, 12, .45); }
