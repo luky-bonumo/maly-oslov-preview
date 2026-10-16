@@ -17,12 +17,9 @@
 </style>
 <style>
   :root { --switch-h: 44px; }
-  html { scroll-padding-top: calc(108px + var(--switch-h)); }
-  body { padding-top: var(--switch-h); }
-  .top { top: calc(var(--gap) + var(--switch-h)); }
+  .top { top: calc(var(--gap) + var(--bar-left, var(--switch-h))); }
   .hero-frame { height: calc(100vh - 2 * var(--gap) - var(--dock-h) - var(--switch-h)); height: calc(100svh - 2 * var(--gap) - var(--dock-h) - var(--switch-h)); }
-  .split-intro, .faq-head { top: calc(110px + var(--switch-h)); }
-  .pismo-bar { position: fixed; z-index: 100; top: 0; left: 0; right: 0; height: var(--switch-h); display: flex; align-items: center;
+  .pismo-bar { position: relative; z-index: 100; height: var(--switch-h); display: flex; align-items: center;
     justify-content: center; gap: 4px; padding: 0 12px; background: #1d1b19; color: #fff; white-space: nowrap;
     font: 500 13px/1 system-ui, -apple-system, "Segoe UI", sans-serif; }
   .pismo-bar .label { opacity: .6; margin-right: 8px; }
@@ -41,6 +38,12 @@
 <nav class="pismo-bar" aria-label="Varianty písma nadpisů"><span class="label">Písmo nadpisů</span><a href="../ogg/"><span class="long">Ogg Medium</span><span class="short">Ogg</span></a><a href="../ivypresto/"><span class="long">IvyPresto Display</span><span class="short">IvyPresto</span></a><a href="../moret/"><span class="long">Moret</span><span class="short">Moret</span></a><b aria-current="page"><span class="long">Playfair Display (aktuální)</span><span class="short">Playfair</span></b></nav>
 <script>
   (function () {
+    var root = document.documentElement, bar = document.querySelector(".pismo-bar");
+    function follow() { root.style.setProperty("--bar-left", Math.max(0, bar.offsetHeight - window.scrollY) + "px"); }
+    window.addEventListener("scroll", follow, { passive: true });
+    window.addEventListener("resize", follow);
+    follow();
+
     var key = "pismo-scroll";
     document.querySelectorAll(".pismo-bar a").forEach(function (a) {
       a.addEventListener("click", function () {
