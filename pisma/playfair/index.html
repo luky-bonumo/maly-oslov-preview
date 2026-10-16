@@ -15,8 +15,45 @@
 <style>
 /* Varianta písma nadpisů: Playfair Display 600, tedy stejné písmo jako aktuální verze. Jen pro srovnání. */
 </style>
+<style>
+  :root { --switch-h: 44px; }
+  html { scroll-padding-top: calc(108px + var(--switch-h)); }
+  body { padding-top: var(--switch-h); }
+  .top { top: calc(var(--gap) + var(--switch-h)); }
+  .hero-frame { height: calc(100vh - 2 * var(--gap) - var(--dock-h) - var(--switch-h)); height: calc(100svh - 2 * var(--gap) - var(--dock-h) - var(--switch-h)); }
+  .split-intro, .faq-head { top: calc(110px + var(--switch-h)); }
+  .pismo-bar { position: fixed; z-index: 100; top: 0; left: 0; right: 0; height: var(--switch-h); display: flex; align-items: center;
+    justify-content: center; gap: 4px; padding: 0 12px; background: #1d1b19; color: #fff; white-space: nowrap;
+    font: 500 13px/1 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .pismo-bar .label { opacity: .6; margin-right: 8px; }
+  .pismo-bar a, .pismo-bar b { padding: 8px 12px; border-radius: 999px; color: #fff; text-decoration: none; }
+  .pismo-bar a { opacity: .78; }
+  .pismo-bar a:hover { opacity: 1; background: rgba(255, 255, 255, .12); }
+  .pismo-bar b { background: #fff; color: #1d1b19; font-weight: 600; }
+  .pismo-bar .short { display: none; }
+  @media (max-width: 760px) {
+    .pismo-bar .label, .pismo-bar .long { display: none; }
+    .pismo-bar .short { display: inline; }
+  }
+</style>
 </head>
 <body>
+<nav class="pismo-bar" aria-label="Varianty písma nadpisů"><span class="label">Písmo nadpisů</span><a href="../ogg/"><span class="long">Ogg Medium</span><span class="short">Ogg</span></a><a href="../ivypresto/"><span class="long">IvyPresto Display</span><span class="short">IvyPresto</span></a><a href="../moret/"><span class="long">Moret</span><span class="short">Moret</span></a><b aria-current="page"><span class="long">Playfair Display (aktuální)</span><span class="short">Playfair</span></b></nav>
+<script>
+  (function () {
+    var key = "pismo-scroll";
+    document.querySelectorAll(".pismo-bar a").forEach(function (a) {
+      a.addEventListener("click", function () {
+        try { sessionStorage.setItem(key, String(window.scrollY / document.documentElement.scrollHeight)); } catch (e) {}
+      });
+    });
+    try {
+      var r = parseFloat(sessionStorage.getItem(key));
+      sessionStorage.removeItem(key);
+      if (r > 0) window.addEventListener("load", function () { window.scrollTo(0, r * document.documentElement.scrollHeight); });
+    } catch (e) {}
+  })();
+</script>
 
 <header class="top">
   <div class="top-in">
@@ -436,31 +473,5 @@
 })();
 </script>
 
-<nav class="pismo-switch" aria-label="Varianty písma">Písmo: <a href="../ogg/">Ogg</a> · <a href="../ivypresto/">IvyPresto</a> · <a href="../moret/">Moret</a> · <b aria-current="page">Playfair</b></nav>
-<style>
-  .pismo-switch { position: fixed; left: 12px; bottom: calc(var(--dock-h, 0px) + 12px); z-index: 9999; background: #34302c; color: #fff;
-    font: 500 13px/1 system-ui, sans-serif; padding: 10px 14px; border-radius: 999px; white-space: nowrap;
-    box-shadow: 0 8px 24px -10px rgba(0, 0, 0, .5); }
-  .pismo-switch a { color: #fff; opacity: .72; text-decoration: none; }
-  .pismo-switch a:hover { opacity: 1; text-decoration: underline; }
-  .pismo-switch b { font-weight: 700; }
-  /* na telefonu by dole zakrýval nadpis v úvodu, proto je nahoře pod hlavičkou */
-  @media (max-width: 640px) { .pismo-switch { top: calc(var(--gap, 8px) + 92px); bottom: auto; } }
-</style>
-<script>
-  (function () {
-    var key = "pismo-scroll";
-    document.querySelectorAll(".pismo-switch a").forEach(function (a) {
-      a.addEventListener("click", function () {
-        try { sessionStorage.setItem(key, String(window.scrollY / document.documentElement.scrollHeight)); } catch (e) {}
-      });
-    });
-    try {
-      var r = parseFloat(sessionStorage.getItem(key));
-      sessionStorage.removeItem(key);
-      if (r > 0) window.addEventListener("load", function () { window.scrollTo(0, r * document.documentElement.scrollHeight); });
-    } catch (e) {}
-  })();
-</script>
 </body>
 </html>
