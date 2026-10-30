@@ -64,7 +64,7 @@ ul, ol { list-style: none; }
 .menu .menu-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 32px; }
 
 /* úvod: fotky se pomalu prolínají jako záběry filmu, nadpis vpravo dole */
-.hero { position: relative; height: calc(100svh - 84px - var(--pad)); min-height: 520px; }
+.hero { position: relative; height: calc(100svh - 84px - 150px); min-height: 520px; }
 .hero .still { position: absolute; inset: 0; }
 .hero .still img { position: absolute; inset: 0; opacity: 0; animation: shot 30s infinite both; }
 .hero .still img:nth-child(1) { animation-delay: -1s; object-position: 50% 62%; }
@@ -84,7 +84,7 @@ ul, ol { list-style: none; }
 .hero-title { position: absolute; z-index: 3; left: 0; right: 0; bottom: 0; padding: 0 clamp(16px, 2.4vw, 36px) clamp(14px, 1.8vw, 28px); container-type: inline-size; }
 .hero h1 { color: var(--on-photo); text-align: right; line-height: 1.08; font-size: calc(100cqi / var(--k-hero) * .99); text-shadow: 0 0 60px rgba(20, 18, 15, .25); }
 .hero h1 > span { display: block; }
-.hero-row { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px 24px; padding-top: clamp(18px, 2vw, 28px); align-items: end; }
+.hero-row { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px 24px; padding-block: clamp(18px, 2vw, 28px) clamp(36px, 4vw, 64px); align-items: end; }
 .hero-row p { grid-column: 1 / span 7; max-width: 42em; }
 .hero-links { grid-column: 9 / span 4; display: flex; justify-content: flex-end; gap: 28px; }
 
@@ -250,9 +250,9 @@ p, li, dd, figcaption { text-wrap: pretty; }
   .manifest .lines { font-size: 1.12rem; }
   .giant.mid { font-size: 13.4vw; }
   body { padding-bottom: 64px; }
-  .dock { display: flex; justify-content: space-around; position: fixed; z-index: 90; left: 0; right: 0; bottom: 0; padding: 16px var(--pad) calc(16px + env(safe-area-inset-bottom)); background: rgba(255, 255, 255, .95); border-top: 1px solid var(--line); transform: translateY(100%); transition: transform .3s; }
+  .dock { display: flex; justify-content: space-around; position: fixed; z-index: 90; left: 0; right: 0; bottom: 0; padding: 6px var(--pad) calc(6px + env(safe-area-inset-bottom)); background: var(--paper); border-top: 1px solid var(--line); transform: translateY(100%); transition: transform .3s; }
   .dock.on { transform: none; }
-  .dock a { font-size: .8125rem; text-transform: uppercase; letter-spacing: .08em; text-underline-offset: .45em; }
+  .dock a { display: inline-flex; align-items: center; min-height: 44px; padding-inline: 12px; font-size: .8125rem; text-transform: uppercase; letter-spacing: .08em; text-underline-offset: .45em; }
   .reel-head { align-items: end; }
   .arrows { display: none; }
   .incl ul.list { columns: 1; }
