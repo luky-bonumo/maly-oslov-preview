@@ -64,14 +64,15 @@ figure > figcaption { padding-top: 10px; }
 .opening h1 { grid-column: 1 / span 7; align-self: end; font-size: clamp(3.4rem, 8.6vw, 10.6rem); line-height: 1.08; letter-spacing: -.02em; }
 .opening .photo { grid-column: 9 / span 4; grid-row: 1 / span 2; }
 .opening .photo .still { aspect-ratio: 4 / 5; }
-.opening .lead { grid-column: 1 / span 6; margin-top: clamp(28px, 3vw, 48px); display: grid; gap: 22px; max-width: 34em; }
+.opening .lead { grid-column: 1 / span 7; margin-top: clamp(28px, 3vw, 48px); display: grid; gap: 22px; max-width: 40em; }
+.opening .lead .ln { display: block; }
 .opening .lead p:first-child { font-family: var(--serif); font-size: clamp(1.5rem, 1.4vw + 1rem, 2.4rem); line-height: 1.15; }
 .opening .links { display: flex; flex-wrap: wrap; gap: 12px 28px; }
 
 /* škrtací manifest */
 .manifest { background: var(--clay); padding-block: clamp(72px, 9vw, 150px); }
 .manifest .mhead { grid-column: 1 / span 5; display: grid; gap: 22px; align-content: start; }
-.manifest h2 { font-size: clamp(2.4rem, 4.4vw, 5.2rem); line-height: 1.1; letter-spacing: -.015em; }
+.manifest h2 { font-size: clamp(2.4rem, 4vw, 4.8rem); line-height: 1.1; letter-spacing: -.015em; }
 .manifest ul { grid-column: 7 / span 6; }
 .manifest li { border-top: 1px solid var(--line); padding: 16px 0 18px; display: grid; gap: 2px; }
 .manifest li:last-child { border-bottom: 1px solid var(--line); }
@@ -132,7 +133,7 @@ figure > figcaption { padding-top: 10px; }
 
 /* cena */
 .price { background: var(--clay); padding-block: clamp(72px, 9vw, 150px); }
-.price .big { grid-column: 1 / span 7; font-family: var(--serif); font-size: clamp(3.4rem, 9.2vw, 12rem); line-height: 1; letter-spacing: -.03em; }
+.price .big { grid-column: 1 / span 7; font-family: var(--serif); font-size: clamp(3.4rem, 9vw, 12rem); line-height: 1; letter-spacing: -.03em; }
 .price .side { grid-column: 9 / span 4; display: grid; gap: 16px; align-content: end; }
 .price ol { grid-column: 1 / -1; margin-top: clamp(48px, 6vw, 96px); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 var(--col-gap); }
 .price ol li { border-top: 1px solid var(--line); padding-top: 16px; display: grid; gap: 6px; align-content: start; }
@@ -209,6 +210,7 @@ figure > figcaption { padding-top: 10px; }
   body { font-size: 1rem; padding-bottom: 64px; }
   .top { height: 68px; }
   .opening h1 { font-size: 16.4vw; }
+  .opening .lead .ln { display: inline; }
   .act h2 { font-size: 23vw; }
   .act { flex-direction: column; align-items: flex-start; }
   .act .when { text-align: left; padding-bottom: 0; }

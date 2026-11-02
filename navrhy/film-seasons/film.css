@@ -66,6 +66,7 @@ ul, ol { list-style: none; }
 .menu nav a { font-family: var(--serif); text-transform: uppercase; font-size: clamp(2.6rem, min(7.4vw, 9svh), 7.5rem); line-height: .96; text-decoration: none; width: fit-content; }
 .menu nav a:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: .12em; }
 .menu .menu-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 32px; }
+.menu .menu-foot a[href^="mailto:"] { text-transform: none; letter-spacing: 0; }
 
 /* úvod: fotky se pomalu prolínají jako záběry filmu, nadpis vpravo dole */
 .hero { position: relative; height: calc(100svh - 84px - 150px); min-height: 520px; }
@@ -159,7 +160,7 @@ p, li, dd, figcaption { text-wrap: pretty; }
 
 /* ceník */
 .price-block { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px; align-items: end; }
-.price-block .big { grid-column: 1 / span 8; font-size: clamp(3rem, 9.6vw, 11rem); }
+.price-block .big { grid-column: 1 / span 8; font-size: clamp(3rem, 9.2vw, 11rem); }
 .price-block .side { grid-column: 9 / span 4; display: grid; gap: 18px; }
 .steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 clamp(24px, 3vw, 56px); margin-top: clamp(56px, 7vw, 110px); }
 .steps-title { font-size: clamp(2rem, 3.6vw, 4rem); margin-top: clamp(56px, 7vw, 110px); }
@@ -170,7 +171,7 @@ p, li, dd, figcaption { text-wrap: pretty; }
 .houses-note { margin-top: clamp(28px, 3vw, 44px); max-width: 44em; }
 
 /* psali o nás */
-.press .quote { font-family: var(--serif); font-size: clamp(2rem, 4.4vw, 5rem); line-height: 1.04; max-width: 15em; }
+.press .quote { font-family: var(--serif); font-size: clamp(2rem, 4.4vw, 5rem); line-height: 1.04; max-width: 15.5em; }
 .press .who { margin-top: 24px; }
 .press .media { display: grid; gap: 6px; margin-top: clamp(40px, 5vw, 72px); border-top: 1px solid var(--line); padding-top: 18px; }
 
@@ -253,6 +254,7 @@ p, li, dd, figcaption { text-wrap: pretty; }
   .reel, .reel.tall { grid-auto-columns: 78vw; gap: 18px; }
   .reel-tools { display: none; }
   .manifest .lines { font-size: 1.12rem; }
+  .press .quote { line-height: 1.1; }
   .giant.mid { font-size: 13.4vw; }
   body { padding-bottom: 64px; }
   .dock { display: flex; justify-content: space-around; position: fixed; z-index: 90; left: 0; right: 0; bottom: 0; padding: 6px var(--pad) calc(6px + env(safe-area-inset-bottom)); background: var(--paper); border-top: 1px solid var(--line); transform: translateY(100%); transition: transform .3s; }
